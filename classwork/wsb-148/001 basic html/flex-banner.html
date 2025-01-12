@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 100vh;
+            background-image: url('https://assets.nflxext.com/ffe/siteui/vlv3/2f5a878d-bbce-451b-836a-398227a34fbf/web/IN-en-20241230-TRIFECTA-perspective_5ab944a5-1a71-4f6d-b341-8699d0491edd_large.jpg');
+            /* background-position: center; */
+            background-size: 100% 100%;
+        }
+        .overlay{
+            height: 100%;
+            
+            background-color: #000000a1;
+        }
+        .header{
+            width: 1320px;
+            margin: auto;
+            /* border: 1px solid yellow; */
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo{
+            width: 180px;
+        }
+
+        img{
+            width: 100%;
+        }
+
+        .signin button{
+            padding: 8px 14px;
+            background-color: #E50914; /**/
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .signin button:hover{
+            background-color: #C11119;
+        }
+
+        .signin select{
+            padding: 8px 14px;
+            border-radius: 4px;
+            background: transparent;
+            color: white;
+            font-weight: bold;
+        }
+        .signin option{
+            color: black;
+        }
+
+        .banner-content{
+            width: 600px;
+            margin: auto;
+            /* border: 2px solid white; */
+            color: white;
+            text-align: center;
+            padding-top: 120px;
+        }
+
+        .banner-content > h1{
+            font-size: 56px;
+            line-height: 70px;
+        }
+
+        .banner-content p:nth-child(2){
+            font-size: 24px;
+            font-weight: 500;
+            margin: 30px 0;
+        }
+
+        .banner-content p:nth-child(3){
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .banner-content div{
+            /* border: 1px solid green; */
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20px;
+        }
+        .banner-content div input{
+            padding: 14px ;
+            width: 70%;
+            background-color: transparent;
+        }
+
+        .banner-content div button{
+            padding: 14px 10px;
+            width: 28%;
+            background-color: #E50914; /**/
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .banner-content div button:hover{
+            background-color: #C11119;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="overlay">
+            <div class="header">
+                <div class="logo">
+                    <img src="https://images.ctfassets.net/y2ske730sjqp/6bhPChRFLRxc17sR8jgKbe/6fa1c6e6f37acdc97ff635cf16ba6fb3/Logos-Readability-Netflix-logo.png" alt="">
+                </div>
+                <div class="signin">
+                    <select name="" id="">
+                        <option value="">Hindi</option>
+                        <option value="">English</option>
+                    </select>
+                    <button>Sign in</button>
+                </div>
+            </div>
+            <div class="banner-content">
+                <h1>
+                    Unlimited movies, <br> TV shows and more
+                </h1>
+                <p>
+                    Starts at ₹149. Cancel at any time.
+                </p>
+                <p>
+                    Ready to watch? Enter your email to create or restart your membership.
+                </p>
+                <div>
+                    <input placeholder="Email Address" type="text">
+                    <button >Get Started &nbsp;&nbsp;&nbsp; > </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
