@@ -89,7 +89,7 @@ nav .container {
 
 
 .h1heading h2 {
-    padding: 20px;
+    padding: 40px;
     color: red;
     text-align: center;
     font-weight: 500;
@@ -98,7 +98,7 @@ nav .container {
 .religion {
     display: flex;
     justify-content: space-between;
-    padding-bottom: 30px;
+    padding-bottom: 35px;
 
 }
 
@@ -107,13 +107,18 @@ nav .container {
     width: 350px;
     /* height: 180px; */
     /* align-content: space-between; */
-    border-radius: 5px
+    border-radius: 5px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    
 }
 
 .religion-card h2 {
     text-align: center;
     padding-bottom: 5px;
     color: grey;
+    padding: 10px;
 }
 
 .religion-card p {
@@ -158,6 +163,7 @@ nav .container {
     text-align: center;
     font-size: 18px;
     color: grey;
+    padding: 20px;
 }
 .advice-card img{
     width: 100%;
@@ -169,6 +175,7 @@ nav .container {
 }
 
 .memories h2{
+    /* font-size: 25px; */
     text-align: center;
     color: red;
     margin: 20px;
@@ -185,21 +192,22 @@ nav .container {
     justify-content: space-between;
     font-size: 18px;
     text-align: center;
+    padding-bottom: 50px;
 }
 
-
-.dating{
-    border: 2px solid;
-}
 
 .dating h1{
     color: red;
     text-align: center;
     margin: 20px 0px;
+    font-size: 26px;
 }
 .main-dating-section{
     display: flex;
     justify-content: space-between;
+    /* align-items: self-start; */
+    /* align-items: flex-start; */
+    /* align-items:start; */
     /* height: 00px; */
 }
 .about-dating{
@@ -207,6 +215,8 @@ nav .container {
     padding: 10px 20px;
     border-radius: 10px;
     margin-left: 20px;
+    align-self: self-start;
+    
 }
 .about-dating p{
     /* text-align: center; */
@@ -271,8 +281,11 @@ footer .online-site p{
     color: gray;
 }
 .about-shadi li a{
-    
     color: gray;
+}
+.about-shadi li a:hover{
+       color: #AA0000;
+
 }
 .first-line{
     border: 2px red solid;
@@ -299,17 +312,22 @@ footer .online-site p{
     align-items: center;
     padding-bottom: 25px;
 }
+.follow a{
+    color: white;
+    
+}
 .copyright{
     font-size: 13px;
     text-align: right;
     line-height: 20px;
     padding-top: 30px;
     }   
- .copyright a{
+ .copyright p a{
         color: blue;
         text-decoration: solid;
         font-weight: 600;
  }
+ 
 .copyright img{
     height: 50px;
     width: 140px;
