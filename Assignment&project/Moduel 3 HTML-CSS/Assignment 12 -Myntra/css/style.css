@@ -48,6 +48,23 @@ header nav>ul a {
 header nav>ul:last-child {
     position: relative;
 }
+nav > ul >li::before {
+    position: absolute;
+    content: '';
+    width: 95%;
+    border: 1px solid #EE5F73;
+    border-radius: 6px;
+    /* height: 2px; */
+    /* background-color: #EE5F73; */
+    bottom: 0;
+    left: 0;
+    scale: 0;
+    transition: 0.2s;
+}
+nav > ul >li:hover::before {
+    scale: 1;
+    
+}
 
 header nav>ul:last-child span {
     position: absolute;

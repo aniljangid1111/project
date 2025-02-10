@@ -30,10 +30,10 @@ header {
 }
 
 .upperpart h1 {
-    background-image: url(//images/BG.svg);
-    background-size: cover;
+    background-image: url('../images/BG.svg');
     background-repeat: no-repeat;
     background-position: bottom right;
+    display: inline;
     margin-bottom: 20px;
     font-size: 44px;
     font-weight: 700;

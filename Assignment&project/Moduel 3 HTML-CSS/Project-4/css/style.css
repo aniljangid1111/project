@@ -1,0 +1,266 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    width: 1240px;
+    /* padding: 10px; */
+    margin: auto;
+    
+}
+header{
+    width: 100%;
+    box-shadow: 0 1px 10px lightgray;
+    position: sticky;
+    top: 0px;
+    z-index: 99999;
+    background-color: white;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px ;
+    align-items: center;
+}
+
+header figure{
+    width: 130px;
+}
+nav ul{
+    display: flex;
+    gap: 25px;
+    
+}
+nav ul li a{
+    color: black;
+    font-size: 22px;
+    font-weight: 500;
+}
+.img-section{
+    background-image: url(../images/the-town-bg-01.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.img-section h1{
+    color: white;
+    font-size: 50px;
+}
+.icon i{
+    color: white;
+    font-size: 70px;
+    margin:25px 0;
+    transition: 0.5s
+}
+.icon:hover i {
+    color: #3496d8;
+}
+.intro-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+
+}
+.section-2-introduction{
+    margin: 50px 0;
+}
+.banner-left{
+    padding: 20px;
+}
+.banner-left img{
+    width: 600px;
+}
+.banner-right{
+    padding-top:20px;
+}
+.banner-right h1{
+    color: #3496d8;
+    font-size: 30px;
+    /* margin: 15px 0; */
+}
+.banner-right p{
+    color: #8F8F8F;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 30px;
+    /* margin: 25px 0; */
+    padding-bottom: 25px;
+    text-align: justify;
+
+}
+.banner-right button{
+    padding: 13px 30px;
+    border-radius: 40px;
+    border: none;
+    background-color: #3496d8;
+    color: white;
+    font-size: 19px;
+}
+.about-info{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+}
+.about-info i,h2{
+    color: #3496d8;
+    margin: 15px 0;
+    font-size: 30px;
+}
+.about-info p{
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+    color: #8F8F8F;
+
+}
+.our-work-container{
+    text-align: center;
+    padding: 20px;
+}
+.our-work-container h1{
+    color: #3496d8;
+    padding-bottom: 25px;
+}
+.our-work-container p{
+    color: #8F8F8F;
+    padding-bottom: 25px;
+}
+.img-container{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 10px; */
+    /* padding-bottom: 35%; */
+    
+}
+.s1{    
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.s1 img{
+    position: relative;
+    width: 220px;
+    height: 330px; 
+}
+.blank{
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.463);
+    width: 220px;
+    height: 100%;
+    transition: 0.5s;
+
+    opacity: 0;
+}
+.s1:hover .blank{
+    opacity: 1;
+}
+.s1 .content{
+    width: 220px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    color: white;
+    transition: 0.5s;
+    opacity: 0;
+
+}
+.content h3{
+    text-align: left;
+    font-size: 25px;
+    font-weight: normal;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.content span{
+    font-weight: 700;
+    font-size: 35px;
+}
+ .s1:hover .content{
+    opacity: 1;
+    top: 100px;
+}
+footer{
+    height: 100vh;
+    width: 100%;
+    background-image: url(../images/the-town-bg-02.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    padding: 50PX;
+
+}
+footer h1{
+    /* margin: auto; */
+    font-size: 50PX;
+    margin: 15px 0;
+    color: white;
+}
+.border-div{
+    border: 2px solid white;
+    width: 100%;
+    margin: 15px 0;
+}
+footer p{
+    text-align: justify;
+    color: white;
+    margin: 15px 0;
+}
+.contact-info{
+    /* padding-left: 50px; */
+    width: 1120px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 20px;
+    padding-bottom: 200px;
+}
+.contact-info div div{
+    margin: 50px 0;
+}
+.contact-info div:last-child button{
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+.contact-info div:last-child input{
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid white;
+    background-color: transparent;
+}
+.contact-info div div:hover{
+    color: #3496d8;
+
+}
+input::placeholder{
+    color: white;
+}
+footer p:last-child{
+    text-align: center;
+}

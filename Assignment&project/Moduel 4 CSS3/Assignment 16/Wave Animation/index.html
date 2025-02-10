@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Effect</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        main{
+            margin: auto;
+            width: 500px;
+            height: 500px;
+            background-color: rgba(29, 122, 169, 0.378);
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+
+        }
+        button{
+            /* padding: 10px 20px; */
+            width: 110px;
+            height: 40px;
+            border: none;
+            border-radius: 25px;
+            background-color: blue;
+            color: whitesmoke;
+            position: relative;
+            font-size: 20px;    
+        }
+        @keyframes wave{
+            0%{
+                transform: scale(0.8);
+                opacity: 0.3;
+            }
+            50%{
+                transform: scale(1.2);
+                opacity: 0.5;
+            }
+            100%{
+                transform: scale(0.8);
+                opacity: 0.3;
+            }
+        }
+        .wave-1{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: none;
+            border-radius: 25px;
+            transform: scale(0.8);
+            opacity: 0;
+            animation: wave 1s linear infinite;
+        }
+        .wave-2{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: none;
+            border-radius: 25px;
+            transform: scale(0.8);
+            opacity: 0;
+            animation: wave 1s 0.2s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <button>Read Me
+            <span class="wave-1"></span>
+            <span class="wave-2"></span>
+        </button>
+    </main>
+</body>
+</html>
