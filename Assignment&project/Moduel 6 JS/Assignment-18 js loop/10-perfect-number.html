@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfect Number Checker</title>
+</head>
+
+<body>
+    <script>
+        let num = parseInt(prompt("Enter a number:"));
+        let sum = 0;
+
+        for (let i = 1; i < num; i++) { // Loop from 1 to num-1
+            if (num % i === 0) {
+                sum += i; // Add divisor to sum
+            }
+        }
+
+        if (sum === num) {
+            document.write(num + " is a Perfect Number");
+        } else {
+            document.write(num + " is NOT a Perfect Number");
+        }
+    </script>
+</body>
+
+</html>
