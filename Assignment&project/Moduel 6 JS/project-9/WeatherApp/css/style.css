@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: serif;
+}
+
+body {
+    background: url(../bg.jpg) center  center no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    color: rgba(255, 255, 255, 0.925);
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 630px;
+    /* height: 550px; */
+    /* width: 40%; */
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.container  > div  h1 {
+    font-weight: 500;
+    font-size: 45px;
+    color: #33a3c6;
+    text-decoration:underline;
+    text-transform: capitalize;
+    text-align: start;
+    margin: 0 0 15px 0;
+}
+.regular-text{
+    /* font-size: 22px; */
+    color: #33a3c6;
+}
+
+
+.search_container {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.search_container input {
+    width: 100%;
+    padding: 10px 25px;
+    padding-right: 50px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.83);
+}
+
+.search_container button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    font-size: 25px;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.616);
+    cursor: pointer;
+}
+
+.Weather-info { 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.location-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    color: #33a3c6;
+    font-size: 22px;
+    text-transform: capitalize;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.weather-summer-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+.weather-summer-img{
+    /* border: solid; */
+    width: 120px;
+    height: 120px;
+}
+.weather-summer-info{
+    text-align: center;
+   
+.condition-txt{
+    color: #33a3c6;
+}
+}
+.weather-condition-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+.condition-item{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.2rem;
+}
+
+
+/* Section message */
+.section-message{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    /* margin-top: 25px; */
+}
+.section-message img{
+    height: 180px;
+    width: fit-content;
+}
