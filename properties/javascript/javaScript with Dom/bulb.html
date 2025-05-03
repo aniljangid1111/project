@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>on off bulb</title>
+    <style>
+        .row{
+            /* width: 500px; */
+            /* margin: 10px auto; */
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <h1>Bulb</h1>
+        <div class="container">
+            <div class="row1">
+                <img src="./images/off.gif" id="img" alt="bulb">
+            </div>
+            <div class="row2">
+                <button id="on" onclick="onBulb()">ON</button>
+                <button id="off" onclick="offBulb()">OFF</button>
+            </div>
+
+        </div>
+
+    </div>
+    <script>
+        const onButton = document.getElementById('on');
+        const offButton = document.getElementById('off');
+        const img = document.getElementById('img');
+
+        function onBulb() {
+            img.src = './images/on.gif';
+        }
+        function offBulb() {
+            img.src = './images/off.gif';
+        }
+    </script>
+</body>
+
+</html>
