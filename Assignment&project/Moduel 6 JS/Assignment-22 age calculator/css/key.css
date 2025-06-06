@@ -7,7 +7,7 @@
 @media only screen and (max-width:500px){
     .container{
         max-width: 350px;
-        padding: 40px
+        padding: 15px
     }
     .user{
         padding: 15px;
@@ -15,12 +15,13 @@
         
     }
     .user input{
-        /* width: 250px; */
+        width: 200px;
         padding: 2px 10px;
+        margin: auto;
         margin: 5px 0;
     }
     .btn{
-        /* margin: 0px; */
+        
         width: 250px;
         margin: auto;
     }
@@ -28,11 +29,14 @@
         margin-bottom: 5px;
     }
     .result .inner{
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 10px;
         text-align:start;
         padding: 5px;
+    }
+    .inner label{
+        margin-left: 24px ;
     }
     
     

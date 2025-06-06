@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+
+    <header class="bg-body-tertiary">
+        <div class="px-4  d-none d-lg-block d-lg-flex justify-content-between align-items-center ">
+            <div class="logo width">
+                <img src="./images/air-jordan-logo.svg" alt="">
+            </div>
+
+            <div class="item-jordan ">
+                <ul class=" d-flex align-items-center  gap-3 fs-8 text-center py-1 cursor-pointer">
+                    <li>Find a store |</li>
+                    <li>Help |</li>
+                    <li>Join us |</li>
+                    <li>Sign In</li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="menu pb-2">
+            <nav id="navbar" class="navbar navbar-expand-lg bg-white">
+                <div class="container-fluid px-4 p-1 d-flex align-items-center justify-content-center">
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#"><img src="./images/download.svg" alt="" class="logo-img"></a>
+
+                    <!-- Collapse Menu Button (Toggler) -->
+                    <button class="navbar-toggler order-3 " type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <!-- Menu Links (on Desktop) -->
+                    <div class="collapse navbar-collapse m-auto order-4 order-lg-1 w-100 mt-2 mt-lg-0"
+                        id="navbarSupportedContent">
+
+                        <form class="d-flex me-3 d-md-none d-block " role="search">
+                            <div class="position-relative ">
+                                <input type="text" class="rounded-5 bg-body-tertiary w-100 my-2 border-0 px-5 py-2"
+                                    style="width: 180px;" placeholder="search">
+                                <div class="position-absolute" style="top: 15px; left: 15px;">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                            </div>
+                        </form>
+
+                        <ul class="navbar-nav m-auto  mb-2 mb-lg-0 fw-bold text-dark">
+                            <li class="nav-item"><a class="nav-link" href="#">New & Featured</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Men</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Women</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Kids</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Sale</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">SNKRS</a></li>
+                        </ul>
+
+                    </div>
+
+                    <!-- Icons and Search-->
+                    <div class="d-flex align-items-center ms-auto order-2 ">
+                        <!-- Search Bar -->
+                        <form class="d-flex  d-md-block d-none " role="search">
+                            <div class="position-relative ">
+                                <input type="text" class="rounded-5 bg-body-tertiary border-0 px-5 py-2"
+                                    style="width: 180px;" placeholder="search">
+                                <div class="position-absolute cursor-pointer" style="top: 8px; left: 10px;">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Heart and Bag Icons -->
+                        <div class="d-flex justify-content-center align-items-center fs-5 mx-2 ">
+                            <div class="mx-3 cursor-pointer"><i class="fa-regular fa-heart"></i></div>
+                            <div class="me-1 cursor-pointer"><i class="fa-solid fa-bag-shopping"></i></div>
+                        </div>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+        <!-- discount -->
+
+
+        <section class="discount ">
+
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-center p-2"
+                            style="min-height: 100px;">
+                            <h6 class="m-0 fs-6">New Styles On Sale: Up To 40% Off</h6>
+                            <p class="m-0 fs-6">Shop All Our New Markdowns</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-flex flex-column justify-content-center align-items-center text-center p-2"
+                            style="min-height: 100px;">
+                            <h6 class="m-0 fs-7">Move, Shop, Customise & Celebrate With Us</h6>
+                            <p class="m-0 fs-7">No matter what you feel like doing today, it’s better as a Member.</p>
+                            <a href="" class="text-dark fs-6">Join Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </header>
+
+
+    <section class="banner px-4 mb-4">
+        <figure>
+            <img src="./images/banner.jpg" alt="">
+        </figure>
+
+        <div class="banner text-center">
+            <h1>Kick It Into Gear</h1>
+            <p>Play, create, and move without limits in the latest football series.</p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button class="btn">Shop men's</button>
+            <button class="btn">Shop Women's</button>
+        </div>
+    </section>
+
+    <section class="feature">
+        <div class="px-3">
+            <p class="fw-bold fs-4 my-2">Featured</p>
+            <div class="img-content d-flex   gap-2 slider">
+                <div>
+                    <figure>
+                        <img src="./images/feature1.jpg" alt="">
+                        <p class="fs-5 fw-normal p-1 my-2">Zenvy Bra & Leggings</p>
+                    </figure>
+                </div>
+                <div>
+                    <figure>
+                        <img src="./images/feature2.jpg" alt="">
+                        <p class="fs-5 fw-normal p-1 my-2">Field General</p>
+                    </figure>
+                </div>
+                <div>
+                    <figure>
+                        <img src="./images/feature3.jpg" alt="">
+                        <p class="fs-5 fw-normal p-1 my-2">Hustle D</p>
+                    </figure>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="latest my-2">
+        <div class="px-3 my-2 ">
+            <div class="mb-4">
+                <p class="fw-bold fs-4 my-2">The Latest</p>
+                <img src="./images/image.jpg" alt="">
+            </div>
+            <div class="text-center">
+                <p class="m-0">Dynamic Air</p>
+                <h1>AIR MAX DN8</h1>
+                <p>Explore unreal motion With Skateboarder Rayssa Leal.</p>
+                <div><button class="btn">Shop</button></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shopBYIcon">
+        <div class="px-3">
+            <div>
+                <h3>Shop by Icon</h3>
+            </div>
+            <div class="shopbticonCard my-3 d-flex  align-items-center gap-4  ">
+                <figure>
+                    <img src="./images/shoes6.jpg" alt="">
+                </figure>
+                <figure>
+                    <img src="./images/shoes4.jpg" alt="">
+                </figure>
+                <figure>
+                    <img src="./images/shoes1.jpg" alt="">
+                </figure>
+                <figure>
+                    <img src="./images/shoes2.jpg" alt="">
+                </figure>
+                <figure>
+                    <img src="./images/shoes3.jpg" alt="">
+                </figure>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="dontmiss my-2">
+        <div class="px-3 my-2 ">
+            <div class="mb-4">
+                <p class="fw-bold fs-4 my-2">Don't Miss</p>
+                <img src="./images/dontmiss.jpg" alt="">
+            </div>
+            <div class="text-center">
+                <p class="m-0">Men's Jordan Collection</p>
+                <h1>SHOW 'EM UP</h1>
+                <p>Crafted for your flyest self ,the new Air Jordan Collection Brings</p>
+                <div><button class="btn">Shop</button></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shopBYIcon my-3">
+        <div class="px-3">
+            <div>
+                <h3>Trending Now</h3>
+            </div>
+            <div class="d-flex gap-4 my-3 shopDress">
+                <div class="">
+                    <div class="trendingCard">
+                        <figure>
+                            <img src="./images/boysgirlsdress.jpg" alt="">
+
+                        </figure>
+                        <div>
+                            <h6>Air Jordan</h6>
+                            <p>Men's Knit Jersey Top</p>
+                            <h6>MRP : $4995</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="">
+                    <div class="trendingCard">
+                        <figure>
+                            <img src="./images/greenpajama.jpg" alt="">
+
+                        </figure>
+                        <div>
+                            <h6>Jordan Flight Chicago</h6>
+                            <p>Women's Parachute Pants</p>
+                            <h6>MRP : $5495</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="">
+                    <div class="trendingCard">
+                        <figure>
+                            <img src="./images/whiteshaneker.jpg" alt="">
+
+                        </figure>
+                        <div>
+                            <h6>Air Jordan</h6>
+                            <p>Men's Snake Shoes</p>
+                            <h6>MRP : $4995</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="  ">
+                    <div class="trendingCard">
+                        <figure>
+                            <img src="./images/airmaxWhite.jpg" alt="">
+
+                        </figure>
+                        <div>
+                            <h6>Nike Rival Fly 4</h6>
+                            <p>Men's Road Running Shoes</p>
+                            <h6>MRP : $8695</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="  ">
+                    <div class="trendingCard">
+                        <figure>
+                            <img src="./images/sportswear.jpg" alt="">
+
+                        </figure>
+                        <div>
+                            <h6>Nike sportswear</h6>
+                            <p>Women's Loose knit Tank Top</p>
+                            <h6>MRP : $3695</h6>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="  ">
+                    <div class="trendingCard">
+                        <figure>
+                            <img src="./images/redshoes.jpg" alt="">
+                        </figure>
+                        <div>
+                            <h6>Nike Air Max Dn8</h6>
+                            <p>men's Shoes</p>
+                            <h6>MRP : $17495</h6>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shopBYSports my-5">
+        <div class="container">
+            <div>
+                <h3>Shop by Sports</h3>
+            </div>
+            <div class="sports-container my-3 d-flex  gap-4  ">
+                <div class="sportsClass">
+                    <figure>
+                        <img src="./images/sports1.jpg" alt="">
+                    </figure>
+                    <div class="sportsBtn">
+                        <button>Running</button>
+                    </div>
+                </div>
+                <div class="sportsClass">
+                    <figure>
+                        <img src="./images/sports2.jpg" alt="">
+                    </figure>
+                    <div class="sportsBtn">
+                        <button>Football</button>
+                    </div>
+                </div>
+                <div class="sportsClass">
+                    <figure>
+                        <img src="./images/sports3.jpg" alt="">
+                    </figure>
+                    <div class="sportsBtn">
+                        <button>Basketball</button>
+                    </div>
+                </div>
+                <div class="sportsClass">
+                    <figure>
+                        <img src="./images/sports4.jpg" alt="">
+                    </figure>
+                    <div class="sportsBtn">
+                        <button>Training and Gym</button>
+                    </div>
+                </div>
+                <div class="sportsClass">
+                    <figure>
+                        <img src="./images/sports5.jpg" alt="">
+                    </figure>
+                    <div class="sportsBtn">
+                        <button>Tennis</button>
+                    </div>
+                </div>
+                <div class="sportsClass">
+                    <figure>
+                        <img src="./images/sports6.jpg" alt="">
+                    </figure>
+                    <div class="sportsBtn">
+                        <button>Yoga</button>
+                    </div>
+                </div>
+                <div class="sportsClass">
+                    <figure>
+                        <img src="./images/sports7.jpg" alt="">
+                    </figure>
+                    <div class="sportsBtn">
+                        <button>Dance</button>
+                    </div>
+                </div>
+                <div class="sportsClass">
+                    <figure>
+                        <img src="./images/sports8.jpg" alt="">
+                    </figure>
+                    <div class="sportsBtn">
+                        <button>Skateboarder</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Border Bottem -->
+    <div class="borderdiv container"></div>
+
+    <footer class="container my-5 ">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="d-flex justify-content-between  flex-lg-row flex-column gap-4 footerContain">
+                    <div>
+                        <h6 class="mb-4 fw-bold">Resources</h6>
+                        <ul class="my-2 p-0 d-flex flex-column gap-2">
+                            <li><a href="">Find A store</a></li>
+                            <li><a href="">Become A Member</a></li>
+                            <li><a href="">Running Shoe Finder</a></li>
+                            <li><a href="">Product Advice</a></li>
+                            <li><a href="">Send Us Feedback</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6 class="mb-4 fw-bold">Help</h6>
+                        <ul class="my-2 p-0 d-flex flex-column gap-2">
+                            <li><a href="">Get Help</a></li>
+                            <li><a href="">Order Status</a></li>
+                            <li><a href="">Delivery</a></li>
+                            <li><a href="">Returns</a></li>
+                            <li><a href="">Payment Options</a></li>
+                            <li><a href="">Contact Us On Nike.com Inquiries</a></li>
+                            <li><a href="">Contact Us On All Other Inquiries</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h6 class="mb-4 fw-bold">Company</h6>
+                        <ul class="my-2 p-0 d-flex flex-column gap-2">
+                            <li><a href="">About Nike</a></li>
+                            <li><a href="">News</a></li>
+                            <li><a href="">Careers</a></li>
+                            <li><a href="">Investors</a></li>
+                            <li><a href="">Sustainability</a></li>
+                            <li><a href="">Impact</a></li>
+                            <li><a href="">Report a Concern</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col-4">
+                <div class="d-flex justify-content-lg-end  gap-1 text-start  india my-3 my-lg-0">
+                    <div class="fs-8">
+                        <i class="fa-solid fa-globe"></i>
+                    </div>
+                    <div>
+                        <h6>India</h6>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="nikecopyRight ">
+            <ul class="d-flex gap-4 p-0 my-5 ">
+                <li><a href="">© 2025 Nike, Inc. All rights reserved</a></li>
+                <li><a href="">Guids</a></li>
+                <li><a href="">Terms of Sale</a></li>
+                <li><a href="">Terms of Use</a></li>
+                <li><a href="">Nike Privacy Policy</a></li>
+                
+            </ul>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

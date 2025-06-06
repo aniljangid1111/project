@@ -12,7 +12,7 @@
             box-sizing: border-box;
         }
 
-        body {
+        main {
             background-color: #f7f7f7;
             font-family: Arial, sans-serif;
             width: 100%;
@@ -136,66 +136,68 @@
 </head>
 
 <body>
-    <div class="formContainer">
-        <form id="formHandler">
-            <div class="groupInput">
-                <label for="name">Name</label>
-                <input type="text" name="name" required>
-            </div>
-            <div class="groupInput">
-                <label for="email">Email</label>
-                <input type="email" name="email" required>
-            </div>
-            <div class="groupInput">
-                <label for="mobileNo">Mobile Number</label>
-                <input type="text" name="mobileNo" required>
-            </div>
-            <div class="groupInput">
-                <label for="country">Country</label>
-                <select name="country" id="country">
-                    <option value="">Select Country</option>
-                    <option value="India">India</option>
-                    <option value="Canada">Canada</option>
-                    <option value="Austraila">Austraila</option>
-                </select>
-            </div>
-            <div class="groupInput">
-                <label for="state">State</label>
-                <select name="state" id="state">
-                    <option value="">Select State</option>
-                </select>
-            </div>
-            <button type="submit" class="submit-btn">Submit</button>
-        </form>
-    </div>
+    <main>
+        <div class="formContainer">
+            <form id="formHandler">
+                <div class="groupInput">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="groupInput">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="groupInput">
+                    <label for="mobileNo">Mobile Number</label>
+                    <input type="text" name="mobileNo" required>
+                </div>
+                <div class="groupInput">
+                    <label for="country">Country</label>
+                    <select name="country" id="country">
+                        <option value="">Select Country</option>
+                        <option value="India">India</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Austraila">Austraila</option>
+                    </select>
+                </div>
+                <div class="groupInput">
+                    <label for="state">State</label>
+                    <select name="state" id="state">
+                        <option value="">Select State</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
 
-    <div class="table-container">
-        <h2>User Data</h2>
-        <table id="data-table" border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Mobile</th>
-                    <th>Country</th>
-                    <th>State</th>
-                    <th>Delete</th>
-                </tr>
-            </thead>
-            <tbody id="fetch-data">
-                <tr>
-                    <td>1</td>
-                    <td>Anil</td>
-                    <td>anil@gmail.com</td>
-                    <td>8441937079</td>
-                    <td>india</td>
-                    <td>Rajasthan</td>
-                    <td><button>Delete</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+        <div class="table-container">
+            <h2>User Data</h2>
+            <table id="data-table" border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="fetch-data">
+                    <tr>
+                        <td>1</td>
+                        <td>Anil</td>
+                        <td>anil@gmail.com</td>
+                        <td>8441937079</td>
+                        <td>india</td>
+                        <td>Rajasthan</td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
 
     <script>
         var getData = JSON.parse(localStorage.getItem('userInfoData'));

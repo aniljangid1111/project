@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+    list-style: none;
+    text-decoration: none;
+
+}
+
+.logo {
+    width: 25px;
+}
+
+img {
+    width: 100%;
+}
+
+.logo-img {
+    width: 30px;
+}
+
+.header-section {
+    background-color: #F5F5F5;
+}
+
+.banner p,
+.latest p {
+    font-family: sans-serif;
+    font-weight: 700;
+
+}
+.sticky-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+
+.banner h1,
+.latest h1 {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-size: 75px;
+    padding: 0;
+    margin: 0;
+
+}
+
+.btn {
+    background-color: black;
+    color: white;
+    padding: 8 15;
+    margin: 0 5px 10px 5px;
+    transition: 0.2s;
+
+}
+
+.btn:hover {
+    background-color: #333333 !important;
+    color: white;
+
+}
+
+.img-content ,.shopbticonCard {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    /* space for the scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    scrollbar-color: #999 #f1f1f1;
+    /* Firefox thumb and track colors */
+}
+
+.cards::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.cards figure {
+    background-color: #F5F5F5;
+    text-align: center;
+    font-family: "Anton", sans-serif;
+    padding: 10px;
+    scroll-snap-align: start;
+}
+.img-content figure{
+    width:500px;
+}
+.shopbticonCard{
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    scrollbar-width: none;    
+    scrollbar-color: #999 #f1f1f1
+}
+.shopbticonCard:hover{
+        scrollbar-width: thin;    
+}
+
+.shopbticonCard img {
+    width: 400px;
+}
+
+.shopDress {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    /* space for the scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    scrollbar-color: #999 #f1f1f1;
+    cursor: pointer;
+}
+.shopDress:hover{
+        scrollbar-width: thin;    
+
+}
+
+.trendingCard {
+    /* background-color: #F5F5F5; */
+    /* text-align: center; */
+    text-transform: capitalize;
+    padding: 10px;
+    scroll-snap-align: start;
+}
+
+.trendingCard figure {
+    width: 400px;
+}
+
+.sports-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 10px;
+    /* space for the scrollbar */
+    scrollbar-width: none;
+    /* Firefox */
+    scrollbar-color: #999 #f1f1f1;
+    cursor: pointer;
+}
+.sports-container:hover{
+        scrollbar-width: thin;    
+
+}
+
+.sportsClass button {
+    padding: 5px 15px;
+    background-color: whitesmoke;
+    border: none;
+    border-radius: 20px;
+    font-weight: 600;
+
+}
+
+.sportsClass button:hover {
+    background-color: lightgray;
+}
+
+.sportsClass figure {
+    width: 450px;
+}
+
+.sportsClass {
+    position: relative;
+}
+
+.sportsBtn {
+    position: absolute;
+    bottom: 75px;
+    left: 70px;
+}
+
+.borderdiv {
+    border-bottom: 2px solid lightgray;
+    width: 100%;
+    height: 10px;
+    margin: 10px auto;
+
+}
+
+/* footer */
+
+.footerContain ul li a,
+.india {
+    text-decoration: none;
+    color: #747072;
+}
+
+.nikecopyRight a {
+    text-decoration: none;
+    color: #747072;
+    font-weight: 500;
+}
