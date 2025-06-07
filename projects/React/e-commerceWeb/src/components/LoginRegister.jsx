@@ -4,6 +4,7 @@ import app from './configFiles/FireBase';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 import { commonContex } from './contex Api/Contex';
+import { getDatabase, onValue, ref, set } from "firebase/database";
 
 
 export default function LoginRegister() {
@@ -12,14 +13,14 @@ export default function LoginRegister() {
     const [registerLoading, setRegisterLoading] = useState('Register')
     const [loginLoading, setLoginLoading] = useState('Login')
 
-    const { isLogin, setIsLogin } = useContext(commonContex);
+    const { isLogin, setIsLogin, cardItem, setCardItem } = useContext(commonContex);
     useEffect(() => {
         if (isLogin) {
             navigate('/')
         }
     }, [])
 
-
+    //  Register Login
     const register = (event) => {
         event.preventDefault();
         setRegisterLoading('Loading...')
@@ -34,6 +35,14 @@ export default function LoginRegister() {
                 // console.log(user);
                 localStorage.setItem('user_uid', user.uid)
                 setIsLogin(user.uid)
+
+
+                // Write Data FireBase
+
+                const db = getDatabase(app);
+                set(ref(db, 'users_cart/' + user.uid), cardItem)
+
+
                 toast.success('Register Successfully')
                 setRegisterLoading('Register')
                 navigate('/')
@@ -47,6 +56,8 @@ export default function LoginRegister() {
                 // ..
             });
     }
+
+    //  Login
     const loginUser = (event) => {
         event.preventDefault();
         setLoginLoading('Loading...')
@@ -59,6 +70,26 @@ export default function LoginRegister() {
                 const user = userCredential.user;
                 localStorage.setItem('user_uid', user.uid)
                 setIsLogin(user.uid)
+
+                // read Data Fire base
+                // const db = getDatabase(app);
+                // const starCountRef = ref(db, 'users_cart/' + user.uid);
+                // onValue(starCountRef, (snapshot) => {
+                //     const data = snapshot.val();
+                //     // updateStarCount(postElement, data);
+
+                //     const finalData = [data, ...cardItem]
+                //     setCardItem(finalData);
+                //     localStorage.setItem('cardItem', JSON.stringify(finalData));
+                // });
+
+
+
+                // Write Data FireBase
+                const db = getDatabase(app);
+                set(ref(db, 'users_cart/' + user.uid), cardItem)
+
+
                 toast.success('Login Successfully');
                 setLoginLoading('Login')
                 navigate('/')
@@ -72,6 +103,8 @@ export default function LoginRegister() {
             });
 
     }
+
+    // Google Login
     const googleLogin = (event) => {
         // var email = event.target.email.value;
         // var password = event.target.password.value;
@@ -92,6 +125,13 @@ export default function LoginRegister() {
 
                 localStorage.setItem('user_uid', user.uid)
                 setIsLogin(user.uid)
+
+                // Write Data FireBase
+
+                const db = getDatabase(app);
+                set(ref(db, 'users_cart/' + user.uid), cardItem)
+
+
                 toast.success('Login Successfully');
                 navigate('/')
 
@@ -140,7 +180,7 @@ export default function LoginRegister() {
                                     <input name='password' type="password" className="form-control" placeholder="Enter password" />
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">{loginLoading}</button>
-                                <button type="button" onClick={googleLogin} class=" mt-3 btn btn-outline-dark w-100 d-flex align-items-center justify-content-center gap-2">
+                                <button type="button" onClick={googleLogin} className=" mt-3 btn btn-outline-dark w-100 d-flex align-items-center justify-content-center gap-2">
                                     <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" style={{ width: '20px' }} />
                                     Sign in with Google
                                 </button>

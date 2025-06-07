@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import { commonContex } from './contex Api/Contex';
 import { toast } from 'react-toastify';
 import { IoMdHeart } from 'react-icons/io';
+import { getDatabase, ref, set } from 'firebase/database';
+import app from './configFiles/FireBase';
 
 
 export default function Product({ data }) {
@@ -22,7 +24,7 @@ export default function Product({ data }) {
 
     }, [data])
 
-    const { cardItem, setCardItem, wishList, setWishList, } = useContext(commonContex)
+    const { cardItem, setCardItem, wishList, setWishList, isLogin } = useContext(commonContex)
 
     const addToCard = (productInfo) => {
 
@@ -56,6 +58,10 @@ export default function Product({ data }) {
             setCardItem(finalData);
             localStorage.setItem('cardItem', JSON.stringify(finalData));
 
+            // FireBase Data write work
+            const db = getDatabase(app);
+            set(ref(db, 'users_cart/' + isLogin), finalData)
+
         } else {
             const info = {
                 id: productInfo.id,
@@ -69,10 +75,13 @@ export default function Product({ data }) {
                 quantity: 1
             }
             const finalData = [info, ...cardItem]
-
             setCardItem(finalData);
             localStorage.setItem('cardItem', JSON.stringify(finalData));
             toast.success('Add To Card :)')
+
+            // FireBase Data write work
+            const db = getDatabase(app);
+            set(ref(db, 'users_cart/' + isLogin), finalData)
 
         }
     }

@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { commonContex } from './contex Api/Contex'
 import { Link } from 'react-router'
 import { toast } from 'react-toastify';
+import { getDatabase, ref, set } from 'firebase/database';
+import app from './configFiles/FireBase';
 
 export default function AddCardPage() {
 
-    const { cardItem, setCardItem } = useContext(commonContex)
+    const { cardItem, setCardItem, isLogin } = useContext(commonContex)
     const [subAmount, setSubAmount] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
     const [shipment, setShipment] = useState(10);
@@ -40,6 +42,11 @@ export default function AddCardPage() {
             setCardItem(finalData);
             localStorage.setItem('cardItem', JSON.stringify(finalData));
 
+
+            // Fire Base Data Write Work
+            const db = getDatabase(app);
+            set(ref(db, 'users_cart/' + isLogin), finalData)
+
         } else if (type == 'plus') {
             const cartData = cardItem.map((data) => {
                 if (cardId == data.id) {
@@ -60,6 +67,10 @@ export default function AddCardPage() {
             setCardItem(finalData);
             localStorage.setItem('cardItem', JSON.stringify(finalData));
 
+            // Fire Base Data Write Work
+            const db = getDatabase(app);
+            set(ref(db, 'users_cart/' + isLogin), finalData)
+
 
 
         }
@@ -70,6 +81,10 @@ export default function AddCardPage() {
             setCardItem(updatedCart); // update state
             localStorage.setItem('cardItem', JSON.stringify(updatedCart)); // update localStorage
             toast.info('Removed from cart.');
+
+            // Fire Base Data Write Work
+            const db = getDatabase(app);
+            set(ref(db, 'users_cart/' + isLogin), updatedCart)
         }
     };
 
