@@ -66,34 +66,32 @@ export default function LoginRegister() {
         const auth = getAuth(app);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
                 localStorage.setItem('user_uid', user.uid)
                 setIsLogin(user.uid)
 
-                // read Data Fire base
-                // const db = getDatabase(app);
-                // const starCountRef = ref(db, 'users_cart/' + user.uid);
-                // onValue(starCountRef, (snapshot) => {
-                //     const data = snapshot.val();
-                //     // updateStarCount(postElement, data);
-
-                //     const finalData = [data, ...cardItem]
-                //     setCardItem(finalData);
-                //     localStorage.setItem('cardItem', JSON.stringify(finalData));
-                // });
-
-
-
-                // Write Data FireBase
+                // READ Data from Firebase Realtime Database
                 const db = getDatabase(app);
-                set(ref(db, 'users_cart/' + user.uid), cardItem)
+                const userCartRef = ref(db, 'users_cart/' + user.uid);
 
+                // Use onValue to get the current data for the user's cart
+                onValue(userCartRef, (snapshot) => {
+                    const firebaseCartData = snapshot.val(); // Get the data at this reference
 
-                toast.success('Login Successfully');
-                setLoginLoading('Login')
-                navigate('/')
-                // ...
+                    if (firebaseCartData) {
+                        // If there's data in Firebase, use it
+                        setCardItem(firebaseCartData);
+                        localStorage.setItem('cardItem', JSON.stringify(firebaseCartData));
+                    } else {
+                        setCardItem([]); // Or set initial empty cart
+                        localStorage.setItem('cardItem', JSON.stringify([]));
+                    }
+                    toast.success('Login Successfully');
+                    setLoginLoading('Login');
+                    navigate('/');
+                }, {
+                    onlyOnce: true // Use onlyOnce if you only want to read the data once on login
+                });
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -126,10 +124,27 @@ export default function LoginRegister() {
                 localStorage.setItem('user_uid', user.uid)
                 setIsLogin(user.uid)
 
-                // Write Data FireBase
-
                 const db = getDatabase(app);
-                set(ref(db, 'users_cart/' + user.uid), cardItem)
+                const userCartRef = ref(db, 'users_cart/' + user.uid);
+
+                // Use onValue to get the current data for the user's cart
+                onValue(userCartRef, (snapshot) => {
+                    const firebaseCartData = snapshot.val(); // Get the data at this reference
+
+                    if (firebaseCartData) {
+                        // If there's data in Firebase, use it
+                        setCardItem(firebaseCartData);
+                        localStorage.setItem('cardItem', JSON.stringify(firebaseCartData));
+                    } else {
+                        setCardItem([]); // Or set initial empty cart
+                        localStorage.setItem('cardItem', JSON.stringify([]));
+                    }
+                    toast.success('Login Successfully');
+                    setLoginLoading('Login');
+                    navigate('/');
+                }, {
+                    onlyOnce: true // Use onlyOnce if you only want to read the data once on login
+                });
 
 
                 toast.success('Login Successfully');
