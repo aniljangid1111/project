@@ -13,24 +13,51 @@ export default function Accordin() {
 
     const [faqs, setfaqs] = useState(data);
 
+    const [passwordType, setPasswordType] = useState(true);
+
     const [currentIndex, setcurrentIndex] = useState(0);
+    const [isOpen, setIsOpen] = useState(false);
 
 
+    const changepasswordType = () => {
+        setPasswordType(!passwordType)
 
-
+    }
     return (
         <>
+            <div className="canva">
+                {
+                    (!isOpen)
+                        ?
+                        <button className='btn-canva' onClick={() => setIsOpen(!isOpen)}>
+                            <RiMenu2Fill />
+                        </button>
+                        :
+                        <button className='btn-canva' onClick={() => setIsOpen(!isOpen)}>
+                            X
+                        </button>
+                }
 
-            <div className='canva'>
 
-                <button><RiMenu2Fill /></button>
-                <RiMenu2Fill />
-                <div className='off-canva'>
-                    <ul>
-                        <li>1</li>
-                    </ul>
+
+
+
+
+                <div className={`off-canva ${isOpen ? 'open' : ''}`}>
+                    <div className='canvaContent'>
+
+                        <h4>Menu</h4>
+                        <ul>
+                            <li>Home</li>
+                            <li>FAQs</li>
+                            <li>Contact</li>
+                        </ul>
+                        <div className='password-div'>
+                            <input type={(passwordType) ? 'password' : 'text'} name="" id="" />
+                            <button onClick={changepasswordType}>{(passwordType) ? 'show' : 'Hide'}</button>
+                        </div>
+                    </div>
                 </div>
-
             </div>
 
             <div className="container">
@@ -39,16 +66,6 @@ export default function Accordin() {
                     faqs.map((value, index) => {
                         return (
                             <FaqSection faqdata={value} key={index} currentIndex={currentIndex} index={index} setcurrentIndex={setcurrentIndex} />
-
-                            // <div className="accordin-qes">
-                            //     <div className="question" onClick={() => showfaq(index)}>
-                            //         <h5>{value.qestion}</h5>
-                            //         <span><index className={`fa ${currentIndex === index ? 'fa-angle-up' : 'fa-angle-down'}`}></index> </span>
-                            //     </div>
-                            //     <div className={currentIndex === index ? 'answer active' : 'answer '} >
-                            //         {value.answare}
-                            //     </div>
-                            // </div>
                         )
                     })
                 }

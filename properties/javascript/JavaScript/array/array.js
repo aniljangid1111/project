@@ -24,9 +24,9 @@ for (let i = 0; i < arr1.length; i++) {
         min=arr1[i];
         arr2=i;
     }
-    for(let s=o;s<arr2.length;s++){
+    // for(let s=o;s<arr2.length;s++){
         
-    }
+    // }
   
 }
-// console.log(min);
+console.log(min);

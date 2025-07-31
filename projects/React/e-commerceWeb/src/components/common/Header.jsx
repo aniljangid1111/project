@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import { ToastContainer } from 'react-toastify'
 import { commonContex } from '../contex Api/Contex';
 import { IoIosContact, IoMdHeart } from 'react-icons/io';
@@ -11,6 +11,11 @@ export default function Header() {
   const { cardItem, isLogin, setIsLogin } = useContext(commonContex)
 
   const [category, setCategory] = useState([]);
+  const [products, setProducts] = useState([])
+  const [searchItem,setSearchItem] =useState('')
+
+  var navition = useNavigate()
+
 
   useEffect(() => {
     axios.get('https://wscubetech.co/ecommerce-api/categories.php')
@@ -25,13 +30,12 @@ export default function Header() {
   const logout = () => {
     localStorage.removeItem('user_uid')
     setIsLogin('')
-    
+
   }
-
-
-
-
-
+  const searchProduct = (event) => {
+    setSearchItem(event.target.value);
+navition('/product-listing')
+  }
 
   return (
     <>
@@ -65,7 +69,7 @@ export default function Header() {
                 <span className="input-group-text bg-white border-end-0">
                   <i className="fa fa-search text-muted"></i>
                 </span>
-                <input type="text" className="form-control border-start-0" placeholder="Search products..." />
+                <input type="text" onKeyUp={searchProduct} className="form-control border-start-0" placeholder="Search products..." />
               </div>
             </div>
 

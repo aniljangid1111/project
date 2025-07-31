@@ -1,13 +1,17 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { toast } from 'react-toastify';
+import { commonContex } from './contex Api/Contex';
 
 export default function DetailProduct() {
 
     const [ratingDetail, setRatingDetail] = useState([]);
     const [productDetails, setProductDetails] = useState('');
     const [currentImg, setCurrentImg] = useState('');
+
+    const { addToCard, wishlistProduct } = useContext(commonContex)
+
 
     useEffect(() => {
         if (productDetails && productDetails.rating) {
@@ -43,25 +47,34 @@ export default function DetailProduct() {
                     <div className="col-md-6">
                         {/* Large Main Image */}
                         <div>
-                            <div className="mb-3  w-100 justify-content-center m-auto">
-                                <img src={currentImg} alt="Main Product" className=" w-100  rounded shadow-sm" />
+                            <div className="mb-3 text-center">
+                                <img
+                                    src={currentImg}
+                                    alt="Main Product"
+                                    className="img-fluid rounded shadow-sm"
+                                    style={{ maxHeight: '400px', objectFit: 'contain' }}
+                                />
                             </div>
 
-                            <div className='row m-auto justify-content-center '>
+                            {/* Thumbnails (scrollable on mobile) */}
+                            <div className="d-flex gap-2 overflow-auto px-2">
                                 {
-                                    (productDetails != '')
-                                        ?
-                                        productDetails.multiple_images.map((img, index) => {
-                                            return (
-                                                < div className="col-md-3 ">
-                                                    <img src={img} key={index} alt="Thumbnail 1" className="img-thumbnail" onClick={() => changeImg(img)}
-                                                    />
-                                                </div>
-                                            )
-                                        })
-
-                                        :
-                                        ' '
+                                    productDetails && productDetails.multiple_images?.map((img, index) => (
+                                        <img
+                                            key={index}
+                                            src={img}
+                                            alt="Thumbnail"
+                                            className="img-thumbnail"
+                                            style={{
+                                                width: '70px',
+                                                height: '70px',
+                                                objectFit: 'cover',
+                                                cursor: 'pointer',
+                                                border: currentImg === img ? '2px solid #007bff' : '1px solid #ccc'
+                                            }}
+                                            onClick={() => changeImg(img)}
+                                        />
+                                    ))
                                 }
                             </div>
                         </div>
@@ -99,10 +112,10 @@ export default function DetailProduct() {
                         </div>
 
                         <div className="d-flex gap-2">
-                            <button className="btn btn-primary">
+                            <button className="btn btn-primary" onClick={() => addToCard(productDetails)}>
                                 <i className="fa fa-shopping-cart me-1"></i> Add to Cart
                             </button>
-                            <button className="btn btn-outline-secondary">
+                            <button className="btn btn-outline-secondary" onClick={() => wishlistProduct(productDetails)}>
                                 <i className="fa fa-heart me-1"></i> Wishlist
                             </button>
                         </div>

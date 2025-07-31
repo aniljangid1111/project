@@ -18,7 +18,7 @@ export default function DealsPage() {
                 limit: 8,
                 categories: 'mens-shirts ,sunglasses',
 
-            }
+            } 
         })
             .then((response) => {
                 setMensShirt(response.data.data)
