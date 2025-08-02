@@ -1,20 +1,45 @@
 const category = require('../../models/category.js');
 require('dotenv').config()
-// console.log(process.env)
+var slugify = require('slugify')
 
+const generateUniqueSlug = async (Model, baseSlug) => {
+    let slug = baseSlug;
+    let count = 0;
+
+    // Loop to find unique slug
+    while (await Model.findOne({ slug })) {
+        count++;
+        slug = `${baseSlug}-${count}`;
+    }
+
+    return slug;
+};
 
 exports.create = async (request, response) => {
 
     // console.log(request.file)
     //single image to console name and path
     // console.log(request.files)  //single image to console name and path
-    var saveImgData = request.body;
+    var saveData = request.body;
+
+
+
+    var slug = slugify(request.body.name, {
+        replacement: '-',  // replace spaces with replacement character, defaults to `-`
+        remove: undefined, // remove characters that match regex, defaults to `undefined`
+        lower: true,      // convert to lower case, defaults to `false`
+        strict: false,     // strip special characters except replacement, defaults to `false`
+        locale: 'vi',      // language code of the locale to use
+        trim: true         // trim leading and trailing replacement chars, defaults to `true`
+    })
+    saveData.slug = await generateUniqueSlug(category, slug);
+
     if (request.file) {
-        saveImgData.image = request.file.filename
+        saveData.image = request.file.filename
     }
 
 
-    var data = new category(saveImgData);
+    var data = new category(saveData);
     await data.save()
         .then((result) => {
             const output = {
@@ -59,11 +84,25 @@ exports.view = async (request, response) => {
         }
     ];
 
-    if (request.body.status == true) {
-        addCondition.push({ status: true })
+    // if (request.body.status == true) {
+    //     addCondition.push({ status: true })
+    // }
+    // if (request.body.status == false) {
+    //     addCondition.push({ status: false })
+    // }
+    if (request.body != undefined) {
+        if (request.body.status != undefined) {
+            if (request.body.status == true) {
+                addCondition.push({ status: true })
+            }
+        }
     }
-    if (request.body.status == false) {
-        addCondition.push({ status: false })
+    if (request.body != undefined) {
+        if (request.body.status != undefined) {
+            if (request.body.status == false) {
+                addCondition.push({ status: false })
+            }
+        }
     }
 
     //    if (request.body && request.body.status === true) {
@@ -73,7 +112,7 @@ exports.view = async (request, response) => {
     // }
 
 
-    const orCondition = []; 
+    const orCondition = [];
 
 
     if (request.body != undefined) {
@@ -102,11 +141,12 @@ exports.view = async (request, response) => {
 
         order: 'asc'
     })
-        .select('_id name order image status')
         .sort({
             _id: 'desc'
 
         })
+        .select('_id name sub_category_ids order image status')
+        .populate('sub_category_ids', 'name')
         .limit(limit).skip(skip)
         .then((result) => {
             if (result.length > 0) {
@@ -153,6 +193,7 @@ exports.details = async (request, response) => {
                 const output = {
                     _status: true,
                     _message: 'Recorde Fatch !!',
+                    _image_path: process.env.category_images,
                     _data: result
                 }
                 response.send(output);
@@ -180,15 +221,15 @@ exports.details = async (request, response) => {
 
 exports.update = async (request, response) => {
 
-    var saveImgData = request.body;
+    var saveData = request.body;
     if (request.file) {
-        saveImgData.image = request.file.filename
+        saveData.image = request.file.filename
     }
 
     await category.updateOne({
         _id: request.params.id
     }, {
-        $set: saveImgData
+        $set: saveData
     })
         .then((result) => {
             const output = {

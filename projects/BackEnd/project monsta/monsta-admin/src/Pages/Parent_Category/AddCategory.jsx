@@ -29,18 +29,22 @@ export default function AddCategory() {
   // }, []);
 
   useEffect(() => {
-    const dropifyElement = $("image");
+    const dropifyElement = $("#image"); // Select by id
+
     if (dropifyElement.data("dropify")) {
       dropifyElement.data("dropify").destroy();
       dropifyElement.removeData("dropify");
     }
 
+    // Replace with new element
     dropifyElement.replaceWith(
-      `<input type ="file" accept="image/*" name="image" id="image" class="dropify" data-height="250" data-default-file="${imageUrl}" />`
+      `<input type="file" accept="image/*" name="image" id="image" class="dropify" data-height="250" data-default-file="${imageUrl}" />`
     );
 
+    // Re-initialize dropify
     $("#image").dropify();
-  }, [imageUrl])
+  }, [imageUrl]);
+
 
 
   useEffect(() => {

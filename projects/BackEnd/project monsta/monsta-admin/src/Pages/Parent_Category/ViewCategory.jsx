@@ -222,13 +222,13 @@ export default function ViewCategory() {
                                   <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                                 </div>
                               </td>
-                              <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
+                              <td scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
 
                                 <div class="py-4">
                                   <div class="text-base font-semibold">{value.name}</div>
 
                                 </div>
-                              </th>
+                              </td>
                               <td className="py-4">
                                 <div className="flex justify-center items-center">
                                   <img
@@ -277,7 +277,6 @@ export default function ViewCategory() {
                             No records found.
                           </td>
                         </tr>
-
                     }
                   </tbody>
                 </table>

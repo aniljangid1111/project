@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Breadcrumb from '../../common/Breadcrumb'
 import { Link } from 'react-router-dom';
 import { MdFilterAltOff, MdModeEdit, MdModeEditOutline } from 'react-icons/md';
-import { CiEdit } from 'react-icons/ci';
 import { FaFilter } from 'react-icons/fa';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-// import { MdModeEditOutline } from "react-icons/md";
 
 export default function ViewCategory() {
   let [activeFilter, setactiveFilter] = useState(true);
@@ -33,7 +31,7 @@ export default function ViewCategory() {
           setCategory(response.data._data);
         } else {
           setCategory([]);
-          toast.error(response.data._message);
+          // toast.error(response.data._message);
         }
       })
       .catch(() => {
@@ -54,8 +52,8 @@ export default function ViewCategory() {
           setTotalPages(response.data._paggination.total_page)
           setImageUrl(response.data._image_path)
         } else {
-          setCategory([]);
-          toast.error(response.data._message);
+          setSubCategory([]);
+          // toast.error(response.data._message);
         }
       })
       .catch(() => {
@@ -74,10 +72,10 @@ export default function ViewCategory() {
     }
   };
   const getAllValues = () => {
-    if (checkedValues.length === category.length) {
+    if (checkedValues.length === subCategory.length) {
       setCheckedValues([]);
     } else {
-      setCheckedValues(category.map((v) => v._id));
+      setCheckedValues(subCategory.map((v) => v._id));
     }
   };
   const changeStatus = () => {
@@ -145,7 +143,7 @@ export default function ViewCategory() {
               {
                 category.map((v, i) => {
                   return (
-                    <option value={v._id}>{v.name}</option>
+                    <option key={i} value={v._id}>{v.name}</option>
                   )
                 })
               }
@@ -164,7 +162,7 @@ export default function ViewCategory() {
           <div className=''>
             <button
               type="submit"
-              className="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="p-2.5 ms-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
             >
               <svg
                 className="w-4 h-4"
@@ -184,13 +182,10 @@ export default function ViewCategory() {
               <span className="sr-only">Search</span>
             </button>
           </div>
-
-
-
         </form>
-
-
       </div>
+
+
       <div className="w-full min-h-[610px]">
         <div className="max-w-[1220px] mx-auto py-5">
           <div className='flex item-center justify-between bg-slate-100 py-3 px-4 rounded-t-md border border-slate-400'>
@@ -220,16 +215,16 @@ export default function ViewCategory() {
 
               <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
 
-                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <table class="w-full text-sm text-center text-gray-500 ">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
                     <tr>
-                      <th scope="col" class="p-4">
+                      <th scope="col" class="p-4 ">
                         <div class="flex items-center">
                           <input
-                            onClick={getAllValues}
+                            onChange={getAllValues}
                             checked={checkedValues.length === subCategory.length}
-                            id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                          <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500    focus:ring-2" />
+                          <label for="checkbox-all-search" class="sr-only ">checkbox</label>
                         </div>
                       </th>
                       <th scope="col" class="px-6 py-3">
@@ -248,7 +243,7 @@ export default function ViewCategory() {
                       <th scope="col" class="w-[10%]  ">
                         Status
                       </th>
-                      <th scope="col" class="w-[6%]">
+                      <th scope="col" class="w-[10%]">
                         Action
                       </th>
                     </tr>
@@ -259,41 +254,45 @@ export default function ViewCategory() {
                         ?
                         subCategory.map((value, index) => {
                           return (
-
-
-                            < tr key={index} class="bg-white  dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <tr key={index} class="bg-white text-center   border-gray-200 hover:bg-gray-50 ">
                               <td class="w-4 p-4">
                                 <div class="flex items-center">
                                   <input
                                     onClick={() => getValue(value._id)}
                                     checked={checkedValues.includes(value._id)}
-                                    id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                    id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 " />
                                   <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                                 </div>
                               </td>
-                              <td scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
 
-                                <div class="py-4">
+                              <td scope="row" class=" items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
+                                <div class="py-4 text-center ">
                                   {value.parent_category_id}
-
                                 </div>
                               </td>
-                              <td class=" py-4">
-                                {value.name}
-
-                              </td>
 
                               <td class=" py-4">
-                                <img class="w-10 h-10 rounded-full"
-                                  onClick={() => {
-                                    setPreviewImage(imageUrl + value.image);
-                                    setShowModal(true);
-                                  }}
-                                  src={imageUrl + value.image} alt="Jese image" />
+                                <div class="text-base font-semibold">{value.name}</div>
                               </td>
-                              <td class=" py-4">
+
+                              <td className="py-4">
+                                <div className="flex justify-center items-center">
+                                  <img
+                                    onClick={() => {
+                                      setPreviewImage(imageUrl + value.image);
+                                      setShowModal(true);
+                                    }}
+                                    className="w-20 h-12 rounded object-cover cursor-pointer hover:scale-105 transition"
+                                    src={imageUrl + value.image}
+                                    alt="Category"
+                                  />
+                                </div>
+                              </td>
+
+                              <td class="  py-4">
                                 {value.order}
                               </td>
+
                               <td class=" py-4">
                                 {value.status == 1 ? (
                                   <span className="inline-block px-5 py-1 text-center text-sm rounded-full bg-green-200 text-green-700">
@@ -305,13 +304,17 @@ export default function ViewCategory() {
                                   </span>
                                 )}
                               </td>
-                              <td class=" py-4">
-                                <Link to={`/category/sub-category/update/${value._id}`} >
-                                  <div className="rounded-[50%] w-[40px] h-[40px] flex items-center justify-center text-white bg-blue-700  border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    <MdModeEdit className='text-[18px]' />
-                                  </div>
-                                </Link>
+
+                              <td className="py-4">
+                                <div className="flex justify-center items-center">
+                                  <Link to={`/category/sub-category/update/${value._id}`}>
+                                    <div className="rounded-full w-10 h-10 flex items-center justify-center text-white bg-blue-700 hover:bg-blue-800">
+                                      <MdModeEdit className="text-[18px]" />
+                                    </div>
+                                  </Link>
+                                </div>
                               </td>
+
                             </tr>
                           )
                         })
@@ -323,23 +326,33 @@ export default function ViewCategory() {
                           </td>
                         </tr>
                     }
-
-
-
-
-
-
                   </tbody>
                 </table>
               </div>
-
-
             </div>
-
           </div>
         </div>
       </div>
 
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+          <div className="bg-white p-4 rounded-lg shadow-lg max-w-[90%] max-h-[90%]">
+            <img
+              src={previewImage}
+              alt="Preview"
+              className="max-w-full max-h-[80vh] object-contain rounded"
+            />
+            <div className="text-center mt-4">
+              <button
+                onClick={() => setShowModal(false)}
+                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
 
     </section >

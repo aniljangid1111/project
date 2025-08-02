@@ -21,7 +21,8 @@ server.get('/', (request, response) => {
     response.send("server is working Fine");
 })
 server.use('/uploads/categories',express.static('uploads/categories'))
-server.use('/uploads/categories',express.static('uploads/subCategories'))
+server.use('/uploads/subCategories',express.static('uploads/subCategories'))
+// server.use('/uploads', express.static('uploads'));
 
 // Admin Api
 

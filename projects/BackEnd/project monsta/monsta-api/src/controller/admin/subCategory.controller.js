@@ -1,4 +1,5 @@
 const subCategory = require('../../models/subCategory.js');
+const category = require('../../models/category.js');
 require('dotenv').config()
 // console.log(process.env)
 
@@ -16,7 +17,23 @@ exports.create = async (request, response) => {
 
     var data = new subCategory(saveImgData);
     await data.save()
-        .then((result) => {
+        .then(async (result) => {
+            await category.updateMany(
+                {
+                    _id: request.body.parent_category_ids
+
+                },
+                {
+                    $push:
+                    {
+                        sub_category_ids:
+                        {
+                            $each: [result._id]
+                        }
+                    }
+                });
+
+
             const output = {
                 _status: true,
                 _message: 'Recorde Inseted !!',
@@ -54,12 +71,9 @@ exports.view = async (request, response) => {
     const addCondition = [
         {
             delete_at: null,
-
         }
     ];
-
     const orCondition = [];
-
 
     if (request.body != undefined) {
         if (request.body.name != undefined) {
@@ -88,11 +102,27 @@ exports.view = async (request, response) => {
 
     var totalrecords = await subCategory.find(filter).countDocuments();
 
-    await subCategory.find(filter).sort({
+    await subCategory.find(filter)
 
-        order: 'asc'
-    })
-        .select('_id name order parent_category_id image status')
+        .select('_id name order parent_category_id parent_category_ids image status')
+        // .populate('parent_category_id')
+        // .populate('parent_category_ids')
+        // .populate('parent_category_id', 'name image')
+        // .populate('parent_category_ids', 'name image')
+        .populate([
+            {
+                path: 'parent_category_id',
+                select: 'name image'
+            },
+            {
+                path: 'parent_category_ids',
+                select: 'name image'
+            }
+        ])
+
+        .sort({
+            order: 'asc'
+        })
         .sort({
             _id: 'desc'
 
@@ -143,8 +173,10 @@ exports.details = async (request, response) => {
                 const output = {
                     _status: true,
                     _message: 'Recorde Fatch !!',
-                    _data: result
+                    _image_path: process.env.SUB_CATEGORY_IMAGES,
+                    _data: result,
                 }
+
                 response.send(output);
             } else {
                 const output = {

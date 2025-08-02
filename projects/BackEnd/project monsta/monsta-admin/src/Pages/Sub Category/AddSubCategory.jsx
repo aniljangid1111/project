@@ -18,34 +18,38 @@ export default function AddSubCategory() {
   const [parentCategory, setParentCategory] = useState('');
   const [category, setCategory] = useState([]);
 
-
-
   useEffect(() => {
-    $(".dropify").dropify({
-      messages: {
-        default: "Drag and drop ",
-        replace: "Drag and drop ",
-        remove: "Remove",
-        error: "Oops, something went wrong"
-      }
-    });
-  }, []);
+    const dropifyElement = $("#image"); // Select by id
+
+    if (dropifyElement.data("dropify")) {
+      dropifyElement.data("dropify").destroy();
+      dropifyElement.removeData("dropify");
+    }
+
+    // Replace with new element
+    dropifyElement.replaceWith(
+      `<input type="file" accept="image/*" name="image" id="image" class="dropify" data-height="250" data-default-file="${imageUrl}" />`
+    );
+
+    // Re-initialize dropify
+    $("#image").dropify();
+  }, [imageUrl]);
+
+
+  // useEffect(() => {
+  //   $(".dropify").dropify({
+  //     messages: {
+  //       default: "Drag and drop ",
+  //       replace: "Drag and drop ",
+  //       remove: "Remove",
+  //       error: "Oops, something went wrong"
+  //     }
+  //   });
+  // }, []);
 
   const filterParentCategory = (event) => setParentCategory(event.target.value);
 
-  // useEffect(() => {
-  //   const dropifyElement = $("image");
-  //   if (dropifyElement.data("dropify")) {
-  //     dropifyElement.data("dropify").destroy();
-  //     dropifyElement.removeData("dropify");
-  //   }
 
-  //   dropifyElement.replaceWith(
-  //     `<input type ="file" accept="image/*" name="image" id="image" class="dropify" data-height="250" data-default-file="${imageUrl}" />`
-  //   );
-
-  //   $("#image").dropify();
-  // }, [imageUrl])
 
   useEffect(() => {
     axios
@@ -73,7 +77,8 @@ export default function AddSubCategory() {
           if (response.data._status == true) {
             const data = response.data._data;
             setCategoryDetails(data);
-            setImageUrl(response.data._image_path)
+            setImageUrl(response.data._image_path + response.data._data.image)
+
           } else {
             toast.error(response.data._message);
             for (var value of response.data._data) {
@@ -96,7 +101,7 @@ export default function AddSubCategory() {
         .then((response) => {
           if (response.data._status == true) {
             toast.success(response.data._message);
-            // navigate('sub-category/view');
+            // navigate('category/sub-category/view');
           } else {
             toast.error(response.data._message);
 
@@ -154,8 +159,8 @@ export default function AddSubCategory() {
                   id="image"
                   name="image"
                   className="dropify"
+                  data-height="250"
                   data-default-file={imageUrl}
-                  data-height="230"
                 />
               </div>
 
@@ -165,7 +170,7 @@ export default function AddSubCategory() {
                   <label className="block  text-md font-medium text-gray-900">
                     Parent Category Name
                   </label>
-                  <select  onChange={filterParentCategory}
+                  <select onChange={filterParentCategory}
                     name="parent_category_id"
                     className="border-2 border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"
                   >

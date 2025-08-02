@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
 
 const categorySchema = new mongoose.Schema({
     name: {
@@ -15,7 +17,21 @@ const categorySchema = new mongoose.Schema({
         // minlength: 4,
         // maxlength: 15 
     },
+    sub_category_id: [{
+        type: Schema.Types.ObjectId,
+        default: '',
+        ref: 'subCategories'
+    }],
+    sub_category_ids: [{
+        type: Schema.Types.ObjectId,
+        default: [],
+        ref: 'subCategories'
+    }],
     image: {
+        type: String,
+        default: ''
+    },
+    slug: {
         type: String,
         default: ''
     },
