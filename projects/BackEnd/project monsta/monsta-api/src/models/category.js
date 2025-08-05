@@ -17,16 +17,6 @@ const categorySchema = new mongoose.Schema({
         // minlength: 4,
         // maxlength: 15 
     },
-    sub_category_id: [{
-        type: Schema.Types.ObjectId,
-        default: '',
-        ref: 'subCategories'
-    }],
-    sub_category_ids: [{
-        type: Schema.Types.ObjectId,
-        default: [],
-        ref: 'subCategories'
-    }],
     image: {
         type: String,
         default: ''
@@ -45,6 +35,31 @@ const categorySchema = new mongoose.Schema({
         min: 0,
         max: 1000
     },
+    sub_category_id: [{
+        type: Schema.Types.ObjectId,
+        default: '',
+        ref: 'subCategories'
+    }],
+    products_ids: [{
+        type: Schema.Types.ObjectId,
+        default: [],
+        ref: 'products'
+    }],
+    sub_category_ids: [{
+        type: Schema.Types.ObjectId,
+        default: [],
+        ref: 'subCategories'
+    }],
+    sub_sub_category_id: [{
+        type: Schema.Types.ObjectId,
+        default: '',
+        ref: 'subCategories'
+    }],
+    sub_sub_category_ids: [{
+        type: Schema.Types.ObjectId,
+        default: [],
+        ref: 'subSubCategories'
+    }],
     update: {
         type: Date,
         default: Date.now()

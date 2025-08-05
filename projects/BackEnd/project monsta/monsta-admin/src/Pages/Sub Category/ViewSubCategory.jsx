@@ -5,6 +5,8 @@ import { MdFilterAltOff, MdModeEdit, MdModeEditOutline } from 'react-icons/md';
 import { FaFilter } from 'react-icons/fa';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic-light-dark.css';
 
 export default function ViewCategory() {
   let [activeFilter, setactiveFilter] = useState(true);
@@ -267,7 +269,7 @@ export default function ViewCategory() {
 
                               <td scope="row" class=" items-center px-6 py-4 text-gray-900 whitespace-nowrap ">
                                 <div class="py-4 text-center ">
-                                  {value.parent_category_id}
+                                  {value.parent_category_id?.name}
                                 </div>
                               </td>
 
@@ -332,6 +334,11 @@ export default function ViewCategory() {
             </div>
           </div>
         </div>
+        <ResponsivePagination
+          current={currentPage}
+          total={totalPages}
+          onPageChange={setCurrentPage}
+        />
       </div>
 
       {showModal && (

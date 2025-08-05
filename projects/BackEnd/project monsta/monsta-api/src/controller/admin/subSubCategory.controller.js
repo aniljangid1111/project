@@ -1,31 +1,27 @@
-const subCategory = require('../../models/subCategory.js');
+const subSubCategory = require('../../models/subSubCategory.js');
 const category = require('../../models/category.js');
 require('dotenv').config()
-// console.log(process.env)
 
 
 exports.create = async (request, response) => {
-
-    // console.log(request.file)
-    //single image to console name and path
-    // console.log(request.files)  //single image to console name and path
     var saveImgData = request.body;
     if (request.file) {
         saveImgData.image = request.file.filename
     }
 
-    var data = new subCategory(saveImgData);
+
+    var data = new subSubCategory(saveImgData);
     await data.save()
         .then(async (result) => {
             await category.updateMany(
                 {
-                    _id: request.body.parent_category_ids
+                    _id: request.body.sub_category_ids
 
                 },
                 {
                     $push:
                     {
-                        sub_category_ids:
+                        sub_sub_category_ids:
                         {
                             $each: [result._id]
                         }
@@ -86,6 +82,11 @@ exports.view = async (request, response) => {
                 addCondition.push({ parent_category_id: request.body.parent_category_id })
             }
         }
+        if (request.body.sub_category_id != undefined) {
+            if (request.body.sub_category_id != '') {
+                addCondition.push({ sub_category_id: request.body.sub_category_id })
+            }
+        }
     }
 
     if (addCondition.length > 0) {
@@ -99,15 +100,11 @@ exports.view = async (request, response) => {
         filter.$or = orCondition;
     }
 
-    var totalrecords = await subCategory.find(filter).countDocuments();
+    var totalrecords = await subSubCategory.find(filter).countDocuments();
 
-    await subCategory.find(filter)
+    await subSubCategory.find(filter)
 
-        .select('_id name order parent_category_id parent_category_ids image status')
-        // .populate('parent_category_id')
-        // .populate('parent_category_ids')
-        // .populate('parent_category_id', 'name image')
-        // .populate('parent_category_ids', 'name image')
+        .select('_id name order parent_category_id sub_category_id sub_category_ids parent_category_ids image status')
         .populate([
             {
                 path: 'parent_category_id',
@@ -115,6 +112,14 @@ exports.view = async (request, response) => {
             },
             {
                 path: 'parent_category_ids',
+                select: 'name image'
+            },
+            {
+                path: 'sub_category_id',
+                select: 'name image'
+            },
+            {
+                path: 'sub_category_ids',
                 select: 'name image'
             }
         ])
@@ -137,7 +142,7 @@ exports.view = async (request, response) => {
                         current_page: page,
                         total_page: Math.ceil(totalrecords / limit)
                     },
-                    _image_path: process.env.SUB_CATEGORY_IMAGES,
+                    _image_path: process.env.SUB_SUB_CATEGORY_IMAGES,
                     _data: result
                 }
                 response.send(output);
@@ -166,13 +171,13 @@ exports.view = async (request, response) => {
 
 exports.details = async (request, response) => {
 
-    await subCategory.findById(request.params.id)
+    await subSubCategory.findById(request.params.id)
         .then((result) => {
             if (result) {
                 const output = {
                     _status: true,
                     _message: 'Recorde Fatch !!',
-                    _image_path: process.env.SUB_CATEGORY_IMAGES,
+                    _image_path: process.env.SUB_SUB_CATEGORY_IMAGES,
                     _data: result,
                 }
 
@@ -201,12 +206,12 @@ exports.details = async (request, response) => {
 
 exports.update = async (request, response) => {
 
-     var saveData = request.body;
+    var saveData = request.body;
     if (request.file) {
         saveData.image = request.file.filename
     }
 
-    await subCategory.updateOne({
+    await subSubCategory.updateOne({
         _id: request.params.id
     }, {
         $set: saveData
@@ -237,7 +242,7 @@ exports.update = async (request, response) => {
 }
 
 exports.changestatuse = async (request, response) => {
-    await subCategory.updateMany({
+    await subSubCategory.updateMany({
         _id: request.body.id
     }, [{
         $set: {
@@ -274,7 +279,7 @@ exports.changestatuse = async (request, response) => {
 }
 
 exports.destroy = async (request, response) => {
-    await subCategory.updateMany({
+    await subSubCategory.updateMany({
 
         _id: request.body.id
 

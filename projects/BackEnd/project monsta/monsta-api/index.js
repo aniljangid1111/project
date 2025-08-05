@@ -20,9 +20,10 @@ server.use(cors());
 server.get('/', (request, response) => {
     response.send("server is working Fine");
 })
-server.use('/uploads/categories',express.static('uploads/categories'))
-server.use('/uploads/subCategories',express.static('uploads/subCategories'))
-// server.use('/uploads', express.static('uploads'));
+// server.use('/uploads/categories',express.static('uploads/categories'))
+// server.use('/uploads/subCategories',express.static('uploads/subCategories'))
+// server.use('/uploads/subSubCategories',express.static('uploads/subSubCategories'))
+server.use('/uploads', express.static('uploads'));
 
 // Admin Api
 
@@ -30,9 +31,11 @@ require('./src/routes/admin/color.routes.js')(server)
 require('./src/routes/admin/material.routes.js')(server)
 require('./src/routes/admin/category.routes.js')(server)
 require('./src/routes/admin/subCategory.routes.js')(server)
+require('./src/routes/admin/subSubCategory.routes.js')(server)
+require('./src/routes/admin/products.routes.js')(server)
 
 server.listen(process.env.PORT, () => {
     mongoose.connect(process.env.DB_URL)
         .then(() => console.log('Connected!'))
-        .catch((error)=> console.log(error))
+        .catch((error) => console.log(error))
 }) 

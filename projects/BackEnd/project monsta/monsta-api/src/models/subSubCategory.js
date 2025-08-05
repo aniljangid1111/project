@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 
-const subCategorySchema = new mongoose.Schema({
+const subSubCategorySchema = new mongoose.Schema({
     name: {
         type: String,
         required: [true, 'Enter category Name !!'],
@@ -33,6 +33,18 @@ const subCategorySchema = new mongoose.Schema({
         default: [],
         ref: 'categories'
     }],
+    sub_category_id: {
+        type: Schema.Types.ObjectId,
+        required: [true, 'parent category is Required !!'],
+        ref: 'subCategories'
+    },
+
+    sub_category_ids: [{
+        type: Schema.Types.ObjectId,
+        // required: [true, 'parent category is Required !!'],
+        default: [],
+        ref: 'subCategories'
+    }],
     products_ids: [{
         type: Schema.Types.ObjectId,
         default: [],
@@ -53,6 +65,6 @@ const subCategorySchema = new mongoose.Schema({
 
 });
 
-const subCategoryModal = mongoose.model('subCategories', subCategorySchema);
+const subSubCategoryModal = mongoose.model('subSubCategories', subSubCategorySchema);
 
-module.exports = subCategoryModal;
+module.exports = subSubCategoryModal;
