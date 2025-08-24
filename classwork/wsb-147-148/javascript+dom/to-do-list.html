@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .container {
+            width: 500px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+
+        }
+
+        .container h2 {
+            text-align: center;
+        }
+
+        .input-container {
+            display: grid;
+            grid-template-columns: 5fr 1fr;
+            gap: 10px;
+        }
+
+        .input-container input {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid grey;
+        }
+
+        .input-container button {
+            border-radius: 4px;
+            border: 1px solid green;
+            background-color: green;
+            color: white;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .input-container button:hover {
+            background-color: white;
+            color: green;
+        }
+
+        .task-list {
+            margin-top: 20px;
+        }
+
+        .task-list li {
+            display: grid;
+            grid-template-columns: 1fr 6fr 1fr;
+            padding: 5px;
+        }
+
+        .task-list li input{
+            cursor: pointer;
+        }
+
+        .task-list li:nth-of-type(even) {
+            background-color: lightcyan;
+        }
+
+        .task-list li:nth-of-type(odd) {
+            background-color: lightgray;
+        }
+
+        .task-list li button {
+            background-color: red;
+            border-radius: 4px;
+            font-size: 10px;
+            color: white;
+            border: 1px solid red;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .task-list li button:hover {
+            background-color: white;
+            color: red;
+        }
+
+        .completedTask{
+            color: darkgrey;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>To-Do List</h2>
+        <div class="input-container">
+            <input type="text" placeholder="Enter a task..." />
+            <button class="task-add-btn">Add Task</button>
+        </div>
+        <ul class="task-list">
+        </ul>
+    </div>
+
+    <script>
+        const taskBtn = document.querySelector('.task-add-btn');
+        const taskInp = document.querySelector('.input-container input');
+        const taskContainer = document.querySelector('.task-list');
+
+        const deleteTask = (e)=>{
+           if(!confirm('Are you sure to delete?')) return;
+
+            const index = e.target.value;
+            const storageData = JSON.parse(localStorage.getItem('to-do-list')) ?? [];
+            storageData.splice(index, 1);
+            localStorage.setItem('to-do-list', JSON.stringify(storageData));
+            showList();
+        }
+
+        const showList = () => {
+            taskContainer.innerHTML = '';
+            const storageData = JSON.parse(localStorage.getItem('to-do-list')) ?? [];
+            if (storageData.length === 0) {
+                taskContainer.innerText = 'No pending tasks.....';
+                return;
+            }
+
+            storageData.forEach((task, index) => {
+
+                const newLi = document.createElement('li');
+
+                if(task.hasCompleted){
+                    newLi.innerHTML = ` <span>
+                        <input checked type="checkbox" onClick="handleCheck(${index}, ${false})" />
+                    </span>`;
+
+                    newLi.innerHTML += ` <span class="completedTask">${task.task}</span>`;
+                } else {
+                    newLi.innerHTML = ` <span>
+                        <input type="checkbox" onClick="handleCheck(${index}, ${true})" />
+                    </span>`;
+
+                   newLi.innerHTML += ` <span>${task.task}</span>`;
+                }
+                
+
+               
+
+                const newButton = document.createElement('button');
+                newButton.innerText = 'Delete';
+                newButton.value = index;
+
+                newButton.onclick = deleteTask
+
+                newLi.appendChild(newButton)
+                taskContainer.appendChild(newLi)
+            })
+        };
+
+        taskBtn.addEventListener('click', () => {
+            const newTask = taskInp.value;
+
+            if (!newTask) return;
+
+            const storageData = JSON.parse(localStorage.getItem('to-do-list')) ?? [];
+
+            const data = {
+                task: newTask,
+                hasCompleted: false
+            };
+
+            storageData.unshift(data);
+
+            localStorage.setItem('to-do-list', JSON.stringify(storageData));
+            taskInp.value = '';
+            showList();
+        });
+
+        showList();
+        
+        const handleCheck = (index, newStatus)=>{
+            const storageData = JSON.parse(localStorage.getItem('to-do-list')) ?? [];
+            storageData[index].hasCompleted = newStatus;
+            localStorage.setItem('to-do-list', JSON.stringify(storageData));
+            showList();
+        }
+    </script>
+</body>
+
+</html>

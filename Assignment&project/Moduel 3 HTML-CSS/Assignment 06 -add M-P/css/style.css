@@ -1,0 +1,167 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+.container{
+    width: 1000px;
+    /* height: 540px; */
+    border: 2px solid black;
+    margin:  20px auto;
+}
+header{
+    width: 100%;
+    /* height: 140px; */
+    
+    
+}
+header h1{
+    text-align: center;
+    font-size: 30px;
+    height: 100px;
+    margin-top: 20px;
+}
+nav{
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+}
+nav div{
+    float: left;
+    border: 1px solid black;
+    width: 199px;
+    text-align: center;
+    align-content: center;
+    height: 40px;
+    margin: 10px 0;
+
+}
+nav div a{
+    color: black;
+    cursor: pointer;
+}
+main{
+    width: 100%;
+    height: 200px;
+    margin: 10px 0;
+    padding-bottom: 10px;
+}
+main .left-banner{
+    width: 249px;
+    float: left;
+    
+}
+main .left-banner div{
+    width: 100%;
+    height: 37px;
+    padding: 10px 0;
+    border: 1px solid black;
+    text-align: center;
+}
+main .right-banner{
+    width: 747px;
+    height: 185px;
+    border: 1px solid black;
+    /* text-align: center; */
+    float: left;
+    padding: 10px 0;
+
+}
+.right-banner .img-container{
+    align-content: center;
+    height: 100%;
+}
+.right-banner h1{
+
+    text-align: center;
+    font-size: 40px;
+}
+.our-clint{
+    width: 100%;
+    /* height: 50px; */
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px 0;
+}
+.img-container{
+    margin: 10px 0;
+    padding: 10px 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    
+}
+.img-container div{
+    float: left;
+    width: 332px;
+    border: 1px solid black;
+    text-align: center;
+    align-content: center;
+    height: 100%;
+}
+footer{
+    width: 100%;
+    height: 46px;
+    border: 1px solid;
+    text-align: center;
+    align-content: center;
+}
+footer p{
+    width: 100%;
+    /* height: 36px; */
+}
+footer a{
+    color: black;
+}
+                                                                                /*    ABOUT SECTION STYLE       */
+.right-banner .about-banner{
+    align-items: center;
+    text-align: center;
+}
+                                    /* Couse style */
+.right-banner .about-course{
+    height: 100%;
+    width: 100%;
+   text-align: center;
+   align-content: center;
+}
+
+/* Gallary */
+
+.right-banner-gallary{
+    width: 747px;
+    height: 361px;
+    float: left;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.image-container{
+    float: left;
+}
+.image-container div{
+    float: left;
+     width: 150px;
+    height: 135px;
+    margin: 5px;
+}
+        /* COntact */
+.contact-us{
+    width: 100%;
+    height: 100%;
+    /* text-align: center; */
+}
+.contact-us p:nth-child(2){
+    text-decoration: solid;
+    font-size: 16px;
+    font-weight: 800;
+}
+.contact-us p span{
+    font-weight: 800;
+}
+.contact-us p{
+    margin: 15px 0;
+}

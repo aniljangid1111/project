@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        main{
+            width: 1000px;
+            margin: auto;
+            height: 600px;
+            /* border: 1px solid; */
+        }
+        .box{
+            color: white;
+            position: relative;
+            margin:  50px auto;
+            font-size: 13px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            align-content: center;
+            background-color: rgba(100, 100, 247, 0.936);
+            /* animation-direction: alternate; */ /*   FOR back Animation     */
+            /* animation-fill-mode: forwards; */
+            /* animation-play-state:running ; */            /*  For alwway run to stop the animation!    */
+            animation: circul 3s  infinite alternate ease-in-out; 
+        }
+        /* .box:hover{
+            animation-play-state: paused;
+        } */
+        @keyframes circul{
+            0%{
+                
+            }
+            50%{
+                scale: 2;
+                transform: rotate(0);
+                border-radius: 0;
+            }
+            100%{
+                scale: 2;
+                transform: rotate(360deg);
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="box">
+            Hello
+        </div>
+    </main>
+</body>
+</html>

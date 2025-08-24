@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade</title>
+</head>
+<body>
+    <script>
+         const math = Number(prompt('please Enter marks in maths'));
+        const engligh = Number(prompt('please Enter marks in English'));
+        const hindi = Number(prompt('please Enter marks in hindi'));
+        const web = Number(prompt('please Enter marks in Web'));
+        
+         const maxmarks = 400;
+        const totalmarks = math + engligh + hindi + web;
+        const per = totalmarks / maxmarks * 100;
+        let grade;
+        if (per >= 90) {
+            grade = 'A';
+        }
+        else if (per >= 80) {
+            grade = 'B';
+        }
+        else if (per >= 70) {
+            grade = 'c';
+
+        }
+        else if (per >= 60) {
+            grade = 'D';
+        }
+        else {
+            grade = 'F';
+        }
+        document.write(grade);
+    </script>
+    
+</body>
+</html>

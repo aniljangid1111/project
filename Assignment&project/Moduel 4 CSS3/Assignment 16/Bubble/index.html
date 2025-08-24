@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Animation</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        main {
+            /* width: 100%; */
+            height: 100vh;
+            background-image: linear-gradient(to bottom, #2980b9, #3498db);
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+
+        }
+
+        ul li {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: inset 0 0 25px rgba(26, 190, 232, 0.4)
+            , inset -5px -10px 35px rgb(255, 255, 255, 0.77);
+            position: absolute;
+            bottom: -150px;
+            left: 50px;
+        }
+        ul li::after{
+            content: '';
+            width: 30%;
+            height: 10%;
+            border-radius: 50%;
+            box-shadow: inset 0 0 25px 10px rgb(255, 255, 255), inset 0 0 25px rgb(255, 255, 255,0.64);
+            filter: blur(3px);
+            transform:translate(-98%,-262%) rotatey(146deg) rotateX(317deg);
+            position: absolute;
+            top: 40%;
+            left: 57%;
+        }
+        ul li:nth-child(1){
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 10%;
+            animation: bubble 5s infinite linear;
+            
+        }
+        ul li:nth-child(2){
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 18%;
+            animation: bubble 3s 0.5s infinite linear;
+            
+        }
+        ul li:nth-child(3){
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 30%;
+            animation: bubble 5s 1s infinite linear;
+            
+        }
+        ul li:nth-child(4){
+            width: 180px;
+            height: 180px;
+            position: absolute;
+            left: 50%;
+            animation: bubble 5s 1s infinite linear;
+        }
+        ul li:nth-child(5){
+            width: 180px;
+            height: 180px;
+            position: absolute;
+            left: 70%;
+            animation: bubble 4s 1s infinite linear;
+        }
+        ul li:nth-child(6){
+            width: 75px;
+            height: 75px;
+            position: absolute;
+            left: 85%;
+            animation: bubble 8s 2s infinite linear;
+        }
+        @keyframes bubble{
+            
+            100%{
+                bottom: 750px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        
+    </main>
+</body>
+
+</html>

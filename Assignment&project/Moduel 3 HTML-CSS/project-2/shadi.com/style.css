@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Raleway", serif;
+    
+    
+}
+
+header {
+    background-image: url(./images/front-banner-jan2025-v2.jpg);
+    height: 100vh;
+    background-size: 100% 100%;
+}
+
+.container {
+    /* border: 2px solid green; */
+    width: 1120px;
+    margin: auto;
+}
+
+nav .container {
+    text-align: right;
+    padding-top: 20px;
+}
+
+.login {
+    color: white;
+    padding: 5px 15px;
+    border-radius: 8px;
+    border: none;
+    background-color: rgb(109, 94, 99);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.4S;
+
+    &.login:hover {
+        background-color: #EEEEEE;
+    }
+}
+
+.join {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #368D87;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.4S;
+
+    &.join:hover {
+        background-color: #31BFAC;
+    }
+}
+
+.about-us button {
+    background-color: #FF716F;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 11px 12px;
+    cursor: pointer;
+}
+
+.about-us>:first-child {
+    text-align: center;
+    padding: 8px;
+}
+
+.about-reg {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-reg p {
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+
+
+.h1heading h2 {
+    padding: 40px;
+    color: red;
+    text-align: center;
+    font-weight: 500;
+}
+
+.religion {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 35px;
+
+}
+
+.religion-card {
+    background-color: #F8F8F8;
+    width: 350px;
+    /* height: 180px; */
+    /* align-content: space-between; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+    
+}
+
+.religion-card h2 {
+    text-align: center;
+    padding-bottom: 5px;
+    color: grey;
+    padding: 10px;
+}
+
+.religion-card p {
+    color: black;
+    text-align: center;
+    font-size: 17px;
+    line-height: 20px;
+    padding-bottom: 30px;
+}
+
+.more-a-tag {
+    text-align: center;
+}
+
+.more-a-tag button {
+    text-align:center;
+    background-color: #31BFAC;
+    padding: 15px 45px;
+    border-radius: 8px;
+    
+}
+
+.religion-card:hover h2 {
+    color: #AA0000;
+}
+
+.religion-card:hover button {
+    color: white;
+    background-color: #528B86;
+}
+
+.Relationship-Advise {
+    display: flex;
+    justify-content: space-between;
+}
+
+.advice-card {
+    width: 30%;
+}
+
+.advice-card h2 {
+    text-align: center;
+    font-size: 18px;
+    color: grey;
+    padding: 20px;
+}
+.advice-card img{
+    width: 100%;
+    border-radius: 20px;
+}
+.advice-card :last-child{
+    text-align: right;
+    text-decoration: none;
+}
+
+.memories h2{
+    /* font-size: 25px; */
+    text-align: center;
+    color: red;
+    margin: 20px;
+}
+.about-memories p{
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+    margin-left: 10px;
+}
+
+.main-memories{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+
+.dating h1{
+    color: red;
+    text-align: center;
+    margin: 20px 0px;
+    font-size: 26px;
+}
+.main-dating-section{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: self-start; */
+    /* align-items: flex-start; */
+    /* align-items:start; */
+    /* height: 00px; */
+}
+.about-dating{
+    background-color:#F8F8F8;
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+    align-self: self-start;
+    
+}
+.about-dating p{
+    /* text-align: center; */
+    line-height: 20px;
+}
+.about-dating img{
+    /* width: 100%; */
+    /* height: 100%; */
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: 20px;
+    background-color: #F3F3F3;
+    height: 500px;
+}
+footer .online-site h1{
+    text-align: center;
+    color: red;
+}
+footer img{
+    width: 38px;
+    height: 15px;
+}
+footer .online-site p{
+    margin-top: 20px;
+    line-height: 25px;
+    font-size: 16px;
+    font-weight: 500;
+    color: gray;
+}
+.about p{
+    color: gray;
+    margin-top: 20px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 500;
+}
+.about p a{
+    color: blue;
+    cursor: pointer;
+}
+.about{
+    display: flex;
+    justify-content: space-between;
+}
+.about h2{
+    color: gray;
+    margin: 20px 0px;
+    font-weight: 600px;
+    font-size: 20px;
+}
+.about div:first-child{
+    line-height: 20px;
+    width: 35% !important;
+}
+.about-shadi ul{
+    margin: 10px 0px;
+}
+.about-shadi li{
+    margin: 15px 0px ;
+    color: gray;
+}
+.about-shadi li a{
+    color: gray;
+}
+.about-shadi li a:hover{
+       color: #AA0000;
+
+}
+.first-line{
+    border: 2px red solid;
+    width: 100px !important;
+}
+.line-about{
+    border: 2px red solid;
+    width: 45px;
+}
+.about-shadi i{
+    font-size: 10px;
+    margin-right: 10px;
+}
+.followus{
+    background-color: #AA0000;
+    margin-bottom: 10px;
+    color: white;
+}
+.follow{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 25px;
+}
+.follow a{
+    color: white;
+    
+}
+.copyright{
+    font-size: 13px;
+    text-align: right;
+    line-height: 20px;
+    padding-top: 30px;
+    }   
+ .copyright p a{
+        color: blue;
+        text-decoration: solid;
+        font-weight: 600;
+ }
+ 
+.copyright img{
+    height: 50px;
+    width: 140px;
+}
+.icon h1{
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+.icon i{
+    font-size: 26px;
+    margin: 0px 10px;
+}

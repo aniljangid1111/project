@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordin FAQ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(#000000, #808080) no-repeat;
+            background-size: cover;
+            height: 100vh;
+            display: grid;
+            place-items: center;
+
+        }
+
+        .container {
+            width: 800px;
+            margin: auto;
+        }
+
+        .container h1 {
+            text-align: center;
+            color: #808080;
+            margin: 20px 0;
+            text-shadow: 0px 0px 12px;
+        }
+
+        .accordin-qes {
+            border: 1px solid lightgray;
+            box-shadow: 0 0 5px lightgray;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            overflow: hidden;
+
+        }
+
+        .question {
+            background-color: black;
+            color: rgba(158, 150, 150, 0.619);
+            padding: 10px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 15px 15px 0 0;
+            font-size: 20px;
+            padding: 20px;
+        }
+
+        .answer {
+            padding: 10px;
+            background-color: rgba(158, 150, 150, 0.619);
+            padding: 10px;
+            display: none;
+
+
+        }
+
+        i {
+            position: absolute;
+            right: 10px;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Frequently Asked Questions (FAQs)</h1>
+        <div class="accordin">
+            <div class="accordin-qes">
+                <div class="question">
+                    <h5> What is Full Stack Web Development?</h5>
+                    <span><i class="fa fa-angle-down"></i> </span>
+                </div>
+                <div class="answer">
+                    Full Stack Development involves working on both the front-end (user interface) and back-end
+                    (server-side) aspects of websites or web applications, covering a broad spectrum of skills to create
+                    fully functional and dynamic websites.
+                </div>
+            </div>
+            <div class="accordin-qes">
+                <div class="question">
+                    <h5> Why is Full Stack Development Important?</h5>
+                    <span><i class="fa fa-angle-down"></i></span>
+                </div>
+                <div class="answer">
+                    Full Stack Developers have a comprehensive understanding of the entire development process. This
+                    versatility allows them to contribute to various stages of a project, leading to efficient
+                    collaboration and quicker problem-solving.
+                </div>
+            </div>
+            <div class="accordin-qes">
+                <div class="question">
+                    <h5>How Does Full Stack Development Differ from Specialized Roles?</h5>
+                    <span><i class="fa fa-angle-down"></i></span>
+                </div>
+                <div class="answer">
+                    Unlike specialized roles that focus on either front-end or back-end, Full Stack Developers are
+                    proficient in both areas. This enables them to seamlessly integrate and optimize all components of a
+                    website.
+                </div>
+            </div>
+            <div class="accordin-qes">
+                <div class="question">
+                    <h5> How Does Full Stack Development Benefit Businesses?</h5>
+                    <span><i class="fa fa-angle-down"></i></span>
+                </div>
+                <div class="answer">
+                    Full Stack Developers streamline development processes, reduce dependency on multiple specialists,
+                    and enhance the overall efficiency of a project. This results in cost-effective solutions and
+                    quicker time-to-market for businesses.
+                </div>
+            </div>
+
+            <div class="accordin-qes">
+                <div class="question">
+                    <h5>Can I Pursue Full Stack Development course in Jodhpur if I am a Beginner?</h5>
+                    <span><i class="fa fa-angle-down"></i></span>
+                </div>
+                <div class="answer">
+                    Absolutely! Full Stack Development courses are designed for beginners and experienced developers
+                    alike. The comprehensive curriculum covers foundational concepts and progressively advances to more
+                    complex topics.</div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const qes = document.querySelectorAll('.question');
+        qes.forEach((v) => {
+            v.addEventListener('click', (event) => {
+                const answer = v.nextElementSibling;
+                const icon = v.querySelector('i');
+
+                const isActive = answer.classList.toggle('active');
+
+
+                if (isActive) {
+                    icon.classList.remove('fa-angle-down');
+                    icon.classList.add('fa-angle-up');
+                } else {
+                    icon.classList.remove('fa-angle-up');
+
+                }
+                qes.forEach((value, index) => {
+                    if (event.target != value) {
+                        icon.classList.add('fa-angle-down');
+                        value.nextElementSibling.classList.remove('active');
+                    }
+                })
+
+            });
+
+        });
+    </script>
+
+
+
+
+</body>
+
+</html>

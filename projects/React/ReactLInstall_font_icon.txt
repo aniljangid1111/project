@@ -1,0 +1,10 @@
+react Icon=  npm i react-icons[site-> https://www.npmjs.com/package/react-icons],iconSite-> [https://react-icons.github.io/react-icons/]
+
+
+
+
+react slick-slider [NPM KEY]=> npm i react-slick    , after this install=> npm install slick-carousel
+
+
+
+react router=>npm i 

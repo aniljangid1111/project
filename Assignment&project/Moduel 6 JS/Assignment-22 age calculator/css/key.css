@@ -1,0 +1,50 @@
+@media only screen and (max-width:1180px){
+    .container{
+        padding:20px;
+    }
+    
+}
+@media only screen and (max-width:500px){
+    .container{
+        max-width: 350px;
+        padding: 15px
+    }
+    .user{
+        padding: 15px;
+        margin: 0px;
+        
+    }
+    .user input{
+        width: 200px;
+        padding: 2px 10px;
+        margin: auto;
+        margin: 5px 0;
+    }
+    .btn{
+        
+        width: 250px;
+        margin: auto;
+    }
+    .btn button{
+        margin-bottom: 5px;
+    }
+    .result .inner{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align:start;
+        padding: 5px;
+    }
+    .inner label{
+        margin-left: 24px ;
+    }
+    
+    
+}
+@media only screen and (max-width:400px){
+    .container{
+        width: 300px;
+        padding:30px;
+    }
+    
+}

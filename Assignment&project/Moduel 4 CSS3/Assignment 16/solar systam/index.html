@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar </title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        body {
+            background: #070721;
+            /* height: 100vh; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        main {
+            width: 100%;
+            height: 100%;
+        }
+
+
+        li {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(0deg);
+            animation: planets 5s infinite linear;
+        }
+
+        ul .sun {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fc3;
+            box-shadow: 0 0 50px #c90;
+        }
+
+
+        ul .mercury {
+            border: 2px solid #394057;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation-duration: 5s;
+        }
+
+        .mercury::after {
+            content: '';
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: gray;
+            position: absolute;
+            top: 20%;
+            /* left: 0%; */
+
+        }
+
+        ul .venus {
+            border: 2px solid #394057;
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            animation-duration: 7s;
+        }
+
+        .venus::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #BF8639;
+            position: absolute;
+            top: 20%;
+            /* left: 10%; */
+
+        }
+
+        ul .earth {
+            border: 2px solid #394057;
+            border-radius: 50%;
+            width: 250px;
+            height: 250px;
+            animation-duration: 10s;
+
+        }
+
+        .earth::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #0084FF;
+            position: absolute;
+            top: 25%;
+        }
+
+        .earth div {
+            width: 80px;
+            height: 80px;
+            /* border: 1px solid wheat; */
+            position: absolute;
+            top: 12%;
+            left: -11%;
+            animation: planets-inner 3s infinite linear;
+
+
+        }
+
+        .earth div::after {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: white;
+            position: absolute;
+            top: 25%;
+            left: 25%;
+        }
+
+        ul .asteroids {
+            border: 2px solid #394057;
+            border-radius: 50%;
+            width: 330px;
+            height: 330px;
+            animation-duration: 12s;
+        }
+        .asteroids::after{
+            content: '';
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+            top: 33%;
+
+        }
+
+        ul .jupiter {
+            border: 2px solid #394057;
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            animation-duration: 15s;
+        }
+        .jupiter::after{
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #E0AE6F;
+            position: absolute;
+            top: 32%;
+        }
+        .saturn{
+            border: 2px solid #394057;
+            border-radius: 50%;
+            width: 480px;
+            height: 480px;
+            animation-duration: 18s;
+        }
+        .saturn::after{
+            content: '';
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #DFD3A9;
+            position: absolute;
+            top: 35%;
+        }
+        .saturn::before{
+            content: '';
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #5a4e34;
+            background:none;
+            position: absolute;
+            top: 34%;
+            left: -1%;
+            transform: skewy(50deg);
+        }
+
+        @keyframes planets {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            to {
+
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @keyframes planets-inner {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <ul>
+            <li class="sun"> </li>
+            <li class="mercury"> </li>
+            <li class="venus"> </li>
+            <li class="earth">
+                <div></div>
+            </li>
+            <li class="asteroids"></li>
+            <li class="jupiter"> </li>
+            <li class="saturn"></li>
+        </ul>
+    </main>
+</body>
+
+</html>

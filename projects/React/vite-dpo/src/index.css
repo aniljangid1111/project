@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+.slick-prev {
+  position: absolute;
+  left: 0% !important;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.647) !important;
+  width: 50px !important;
+  height: 100px !important;
+}
+
+.slick-next {
+  position: absolute;
+  right: 0% !important;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.647) !important;
+  width: 50px !important;
+  height: 100px !important;
+}
+
+.slick-prev::before {
+  content: '\f053' !important;
+  font-size: 55px !important;
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 800 !important;
+  position: absolute !important;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  /* color: red !important; */
+}
+
+.slick-next::before {
+  content: '\f054' !important;
+  font-size: 55px !important;
+  font-family: 'Font Awesome 5 Free' !important;
+  font-weight: 800 !important;
+  position: absolute !important;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  /* color: red !important; */
+}
+.main_nav li{
+  position: relative;
+  
+}
+.main_nav li::before {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #EC6B6C;
+  bottom: -20px;
+  left: 0;
+  transition: 0.3s;
+  width: 0;
+}
+.main_nav li.active::before {
+  width: 110%;
+}
+.main_nav li:hover::before{
+  width: 110%;
+ 
+}

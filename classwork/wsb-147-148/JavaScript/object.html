@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .count-container {
+            width: 100px;
+            background-color: red;
+            color: white;
+            margin: auto;
+        }
+
+        .count-container2 {
+            width: 100px;
+            background-color: black;
+            color: white;
+            margin: auto;
+        }
+
+        .count {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="count-container">Count is <span>10</span></div>
+    <div class="count-container2">Count is <span>10</span></div>
+    <div class="count">
+        <input type="number">
+        <button>Change Value</button>
+        <button onclick="handleCount()">check count</button>
+    </div>
+    <script>
+        let count = 10;
+
+        document.querySelector('.count button')
+            .addEventListener('click', () => {
+                const newVal = document.querySelector('.count input').value;
+
+                count = newVal;
+                document.querySelector('.count-container span').innerHTML = newVal;
+                document.querySelector('.count-container2 span').innerHTML = newVal;
+            });
+
+        function handleCount() {
+            console.log(count)
+        }
+    </script>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let arr = [10, 20, 30, 40, 50];
+        // const arr = [10, 20, 30, 40, 50];
+
+        // arr[1] = 99;
+        // arr = []
+
+        // console.log(arr);
+
+        // let a = 10;
+        // let b = a;
+
+        // b += 15;
+
+        // console.log(a, b);
+
+        // let arr1 = [56, 12, 89, 30];
+
+        // let arr2 = arr1;
+
+        // arr2[1] = 99;
+
+        // console.log(arr1, arr2)
+
+
+        // let mainArr = [10, 20, 30, 40, 50, 60];
+
+        // let secondaryArr = [...mainArr, 90, 70];
+
+        // secondaryArr[0] = 99;
+        
+
+        // console.log(mainArr, secondaryArr);
+
+
+        // let obj = ['john', 'wick', 30, 'john@mail.com'];
+
+        //let obj = {  lastname: 'wick', age: 30, firstname: 'john', email: 'john@mail.com' };
+        // obj['age'] = 32
+        //obj.age = 32
+
+        //console.log(obj['firstname'], obj.firstname, obj.age);
+
+
+        // let user = {  
+        //     lastname: 'wick', 
+        //     age: 30, 
+        //     firstname: 'john', 
+        //     email: 'john@mail.com' 
+        // };
+
+        // const {email, lastname, ...restDetails} = user; // const email = user.email;  const lastname = user.lastname
+        // const userCopy = {...user}
+        // console.log(lastname, email, restDetails, userCopy)
+
+
+        // let user = {  
+        //     lastname: 'wick', 
+        //     age: 30, 
+        //     firstname: 'john', 
+        //     email: 'john@mail.com' 
+        // };
+
+        // const newUser = user;
+
+        // newUser.contact = 1234567890;
+
+        // console.log(user, newUser)
+
+        //  let user = {  
+        //     lastname: 'wick', 
+        //     age: 30, 
+        //     firstname: 'john', 
+        //     email: 'john@mail.com' 
+        // };
+
+        // const newUser = {...user, contact: 1234567890}; // newUser.contact = 1234567890;       
+
+        // console.log(user, newUser)
+
+        const arr = [2, 2, 6, 8, 8, 10];
+        arr.splice(2, 2, 4, 4, 4, 4);
+        const [a, b, ...newArr] = arr;
+        const finalArr = [...newArr, 4, 8, 9];
+
+        // sum of all elements in the finalArr
+
+
+
+
+        const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+        const arr2 = arr1.splice(3, 4, 2, 2, 2, 2);
+        const [x, y, ...arr3] = arr2;
+        const lastArr = [...arr3, 1, 2, 3];
+
+        // sum of all elements in the lastArr
+
+    </script>
+</body>
+</html> -->

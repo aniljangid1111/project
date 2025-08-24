@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+            font-family: sans-serif;
+        }
+
+        body {
+            /* background: #005AA7; */
+            background: linear-gradient(to right, #FFFDE4, #005AA7);
+        }
+
+        .container {
+            /* align-items: center; */
+            margin: 20px auto;
+            width: 500px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #005AA7;
+            background-color: transparent;
+
+        }
+        .container h2 {
+            text-align: center;
+            color: #065EA8;
+        }
+        .input-container {
+            display: grid;
+            grid-template-columns: 5fr 1fr;
+            gap: 10px;
+        }
+        .input-container input {
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #FFFDE4;
+            background-color: transparent;
+        }
+        .input-container button {
+            border-radius: 5px;
+            border: 1px solid #005AA7;
+            background: linear-gradient(to right, #FFFDE4, #005AA7 75%);
+            background-size: 200% auto;
+            color: black;
+            transition: 0.2s;
+            cursor: pointer;
+            transition: 1s;
+            transition: background-position 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+        .input-container button:hover {
+            background-position: right center;
+            color: white;
+        }
+        .task-list {
+            margin-top: 20px;
+        }
+        .task-list li {
+            display: grid;
+            grid-template-columns: 1fr 6fr 1fr;
+            padding: 5px;
+            color: #FFFDE4;
+            font-size: 15px;
+        }
+        .task-list li:nth-of-type(even) {
+            background-color: #91B6C9;
+        }
+
+        .task-list li:nth-of-type(odd) {
+            background-color: #4284B7 ;
+        }
+        .task-list li button {
+            /* background-color: rgb(195, 90, 90); */
+            background-color: #3E82B6;
+            border-radius: 4px;
+            font-size: 10px;
+            color: white;
+            border: 1px solid  #FFFDE4;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            padding: 4px 16px;
+        }
+
+        .task-list li button:hover {
+            background-color: red;
+            color: white;
+        }
+        .completedTask{
+            color: lightgrey;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>To-Do-List</h2>
+        <div class="input-container">
+            <input type="text" placeholder="Enter a Task...">
+            <button class="task-add-btn"> Add Task </button>
+        </div>
+        <ul class="task-list">
+            <!-- <li>
+                <span>
+                    <input type="checkbox">
+                </span>
+                <span>Task 1</span>
+                <button>Delete</button>
+            </li> -->
+        </ul>
+    </div>
+    <script>
+        const tastBtn=document.querySelector('.task-add-btn')
+        const taskInp = document.querySelector('.input-container input');
+        const taskContainer = document.querySelector('.task-list');
+
+        const deleteTask =(e)=>{
+            if(!confirm('Are you sure to delete')) return;
+
+            const index=e.target.value;
+            const storageData=JSON.parse(localStorage.getItem('to-do-list')) ?? [];
+            storageData.splice(index,1);
+            localStorage.setItem('to-do-list', JSON.stringify(storageData));
+            showList();
+
+        }
+
+
+
+
+        const showList =() =>{
+            taskContainer.innerHTML='';
+            const storageData =JSON.parse(localStorage.getItem('to-do-list')) ?? [];
+            if(storageData.length ===0){
+                taskContainer.innerHTML='No Pending Task....';
+                taskContainer.style.color = '#FFFDE4';
+                return;
+            }
+            storageData.forEach((task,index)=>{
+
+                const newLi=document.createElement('li');
+
+                if(task.hascompleted){
+                    newLi.innerHTML=` <span>
+                        <input checked type="checkbox" onClick="handleCheck(${index}, ${false})" />
+                    </span>`;
+
+                    newLi.innerHTML += ` <span class="completedTask">${task.task}</span>`;
+  
+                }
+                else{
+                    newLi.innerHTML = ` <span>
+                        <input type="checkbox" onClick="handleCheck(${index}, ${true})" />
+                    </span>`;
+
+                   newLi.innerHTML += ` <span>${task.task}</span>`;
+                }
+
+                // newLi.innerHTML=` <span>
+                //         <input type="checkbox">
+                //     </span>`;
+                //     newLi.innerHTML +=` <span>${task.task}</span>`;
+                //     const newButton =document.createElement('button');
+                //     newButton.innerHTML='Delete';
+                //     newLi.appendChild(newButton)
+                //     taskContainer.appendChild(newLi)
+                
+                const newButton =document.createElement('button');
+                newButton.innerHTML='Delete'
+                newButton.value=index;
+                newButton.onclick=deleteTask
+
+                newLi.appendChild(newButton)
+                taskContainer.appendChild(newLi)
+            })
+        };
+        tastBtn.addEventListener('click' ,()=>{
+            const newTask=taskInp.value;
+            if(!newTask) return;
+
+            const storageData = JSON.parse(localStorage.getItem('to-do-list')) ??[]
+            
+            const data={
+                task:newTask,
+                hascompleted:false
+            };
+            storageData.unshift(data);
+            localStorage.setItem('to-do-list',JSON.stringify(storageData));
+            taskInp.value='';
+            showList();
+
+        });
+        showList();
+
+        const handleCheck=(index,newstatus)=>{
+            const storageData=JSON.parse(localStorage.getItem('to-do-list')) ??[];
+            storageData[index].hascompleted=newstatus;
+            localStorage.setItem('to-do-list',JSON.stringify(storageData));
+            showList();
+        }
+
+
+    </script>
+</body>
+
+</html>

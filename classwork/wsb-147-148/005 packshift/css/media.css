@@ -1,0 +1,52 @@
+@media only screen and (max-width: 1180px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .banner{
+        grid-template-columns: 1fr;
+    }
+    .banner-content{
+        text-align: center;
+    }
+    .banner-img-container{
+        margin: auto;
+    }
+
+    .banner form{
+        max-width: 600px;
+        margin: auto;
+    }
+    .videos-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .header-contact{
+        display: none;
+    }
+
+    nav{
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .contact-container{
+        width: 100%;
+        display: unset;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: fixed;
+        bottom: 0;
+    }
+    .banner-form{
+        padding: 0;
+    }
+    .videos-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
