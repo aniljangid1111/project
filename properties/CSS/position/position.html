@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            width: 1000px;
+            height: 2500px;
+            border: 2px solid red;
+            position: sticky;
+        
+        }
+        .box{
+            height: 100px;
+            border: 2px solid black;
+        }
+        .fixed{
+            position: fixed; /* this position work on  window screen */
+            height: 100px;
+            left: 200px;
+            top: 500px;
+            border: 2px solid black;
+        }
+        .static{
+            position:static; /* this position default value element  */
+            border: 2px solid black;
+            height: 100px;
+            /* left: 200px; */
+            /* top: 500px; */
+        }
+        .absolute{
+            position:static; /* this position relative to its first positioned(not static)  */
+            border: 2px solid black;
+            height: 100px;
+            left: 200px;
+            top: 500px;
+        }
+        .relative{
+            position:relative; /* this position to its normal position so we left 50px then add and left */
+            border: 2px solid black;
+            height: 100px;
+            left: 50px;
+            top: 550px;
+            /* position: sticky; */
+        }
+        .sticky{
+           
+            position:sticky; /*this position based on the user scroll*/
+            border: 2px solid black;
+            height: 100px;
+            left: 50px;
+            top: 0;
+        }
+
+        footer{
+            height: 1000px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        sssss
+        <div class="fixed">fixed</div>
+        <div class="static">static</div>
+        <div class="absolute"> absolute</div>
+        <div class="relative">relative</div>
+        <div class="sticky">sticky</div>
+    </div>
+    <footer></footer>
+</body>
+</html>

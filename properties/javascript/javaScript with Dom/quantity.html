@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 100%;
+        }
+        .container{
+            margin: 50px auto;
+            width: 600px;
+            box-shadow: 10px 10px 20px lightgray;
+
+        }
+        .img img{
+            margin: 10px 0;
+            /* padding: 10px; */
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px lightgray ;
+            border: none;
+        }
+        .product-name,.price{
+            color: #F6911A;
+            text-shadow: 5px 5px 10px #F6911A;
+            font-size: 18px;
+            text-transform: uppercase;
+            margin: 10px 0;
+        }
+        .counterbtn{
+            margin: 10px auto;
+            text-align: center;
+        }
+        button{
+            padding: 4px 20px;
+            border: none;
+            border-radius: 10px;
+            background-color: #030200;
+            color: #F6911A;
+            font-size: 20px;
+
+        }
+        button:disabled{
+            background-color: rgba(22, 20, 20, 0.288);
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="img">
+            <img src="./img/first.jpg" alt="">
+        </div>
+        <div class="product-name">
+            msi logo
+        </div>
+        <div class="price">
+            ₹21000
+        </div>
+        <div class="counterbtn">
+            <button id="incress" >+</button>
+            <button id="qty" >0</button>
+            <button id="decress" >-</button>
+        </div>
+    </div>
+</body>
+<script>
+    let incress=document.querySelector("#incress");
+    let qty=document.querySelector("#qty");
+    let decress=document.querySelector("#decress");
+    incress.addEventListener("click",()=>{
+        decress.disabled=false;
+        let data=Number(qty.innerHTML);
+        if(data<5){
+            qty.innerHTML=data+1;
+        }
+        else{
+            incress.disabled=true;
+        }
+    })
+    decress.addEventListener("click",()=>{
+        incress.disabled=false;
+        let data=Number(qty.innerHTML);
+        if(data>0){
+            qty.innerHTML=data-1;
+        }
+        else{
+            decress.disabled=true;
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            width: 300px;
+            height: 300px;
+            margin: auto;
+            position: relative;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .box {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.29);
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            text-align: justify;
+            transition: 0.5s;
+            transform: scale(0);
+            transform-origin: top;
+        }
+
+        main:hover .box {
+            transform: scale(1);
+
+
+        }
+
+        .box p {
+            font-size: 18px;
+            line-height: 20px;
+        }
+
+        .box button {
+            padding: 10px 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <img src="./images/classroom-training.webp" alt="">
+        <div class="box">
+            <div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi suscipit expedita at velit, iste
+                    numquam.expedita at velit, iste numquam.Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Animi
+                    suscipit expedita at velit, iste numquam.expedita at velit, iste numquam
+                </p>
+            </div>
+            <div> <button>Read More</button></div>
+
+        </div>
+    </main>
+</body>
+
+</html>

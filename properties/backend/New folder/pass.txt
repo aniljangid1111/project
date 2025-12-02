@@ -1,0 +1,8 @@
+pass-gZ9lectc4Vx1bNvG
+user-aniljangid6199_db_user
+
+
+mongodb+srv://aniljangid6199_db_user:<db_password>@learndb.gnht93q.mongodb.net/(databasename)?retryWrites=true&w=majority&appName=learnDB
+
+
+const url = `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASSWORD}@${process.env.DBCLUSTER}.${process.env.DBCODE}.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority&appName=${process.env.DBCLUSTER}`

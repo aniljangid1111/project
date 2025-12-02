@@ -1,0 +1,419 @@
+ * {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: sans-serif;
+ }
+
+ .clearclass {
+     clear: both;
+     padding: 5px;
+ }
+
+ .main {
+     width: 1000px;
+     height: 800px;
+     border: 5px solid black;
+     margin: auto;
+ }
+
+ body {
+     background-color: black;
+ }
+
+ .header {
+     background-image: url(./images/headerbg.jpg);
+     height: 186px;
+     padding: 10px 20px;
+ }
+
+ .logo {
+     width: 210px;
+     height: 160px;
+     float: left;
+ }
+
+ .sitename {
+     width: 400px;
+     height: 160px;
+     text-align: center;
+     float: left;
+     text-transform: uppercase;
+     font-size: 20px;
+     padding-top: 40px;
+ }
+
+ .contact {
+     background-image: url(./images/topcontactbg.png);
+     width: 256px;
+     float: left;
+     padding: 10px;
+ }
+
+ .info-web {
+     font-weight: normal;
+     font-size: 24px;
+ }
+
+ .info-mail {
+     font-size: 22px;
+     margin: 8px 0px;
+ }
+
+ .info-contact {
+     font-size: 24px;
+     color: white;
+ }
+
+ .nav {
+     height: 50px;
+     background-image: url(./images/menubg.jpg);
+     padding: 8px 0 0 62px;
+     margin-bottom: 5px;
+ }
+
+ .nav-item {
+     height: 44px;
+     width: 127px;
+     background-image: url(./images/menubackground.png);
+     text-align: center;
+     float: left;
+     margin-left: 16px;
+     line-height: 44px;
+ }
+
+ .nav a {
+     color: black;
+     text-decoration: none;
+     font-weight: bold;
+     font-size: 15px;
+
+ }
+
+ .banner-section {
+     width: 995px;
+     height: 242px;
+     margin-bottom: 15px;
+ }
+
+ .banner-nav {
+     margin-left: 10px;
+     height: 240px;
+     float: left;
+     width: 213px;
+     /* padding-top: 5px; */
+     padding: 5px;
+ }
+
+ .banner {
+     padding: 5px;
+     /* padding-top: 5px; */
+     /* height:240px ; */
+     width: 700px;
+     float: left;
+     margin-left: 8px;
+ }
+
+ .banner-nav-item {
+     background-image: url(./images/leftmenubg.png);
+     /* background-repeat: no-repeat; */
+     height: 40px;
+     width: 212px;
+     text-align: center;
+     font-size: 14px;
+     font-weight: bold;
+     text-decoration: none;
+     padding-top: 10px;
+     /* line-height: center; */
+
+ }
+
+ .banner-nav-item a {
+     color: black;
+     text-decoration: none;
+ }
+
+ .feature-section {
+     width: 991px;
+     height: 215px;
+     padding: 5px px;
+
+
+ }
+
+ .why-iip {
+     border: 3px solid black;
+     border-radius: 10px;
+     margin-left: 10px;
+     width: 213px;
+     height: 203px;
+     padding-top: 5px;
+     background-image: url(./images/whybg.jpg);
+     background-size: 15px;
+     float: left;
+ }
+
+ .why-iip-item {
+     color: aliceblue;
+     padding-left: 20px;
+ }
+
+ .why-iip h2 {
+     font-size: 18px;
+     text-decoration: underline;
+     margin: 10px 0px;
+     /* line-height: 35px; */
+ }
+
+ .why-iip ol {
+     padding-bottom: 5px;
+ }
+
+ .courses {
+     background-color: #fdc059;
+     border: 1px solid white;
+     width: 360px;
+     height: 200px;
+     padding: 10px;
+     margin-left: 7px;
+     float: left;
+ }
+
+ .coursesheading {
+     text-decoration: underline;
+     color: white;
+     margin-bottom: 5px;
+ }
+
+ .coursescontant {
+     font-weight: bold;
+     font-size: 14px;
+     line-height: 25px;
+
+ }
+
+ .coursescontant ul {
+     list-style: none;
+ }
+
+ .rightlower {
+     margin-left: 8px;
+     float: left;
+ }
+
+ .mainbottem {
+     width: 992px;
+     height: 80px;
+     padding: 5px 10px 10px 9px;
+
+     /* padding-right: 5px; */
+ }
+
+ .lastbottam {
+     background-image: url(./images/footer_middle.png);
+     width: 970px;
+     height: 49px;
+     text-align: center;
+     line-height: 49px;
+     font-weight: bold;
+     font-size: 15px;
+     border: 2px solid white;
+     border-radius: 10px;
+
+ }
+
+ /*  CLOSE MAIN HOMR PAGE */
+
+ /* ABOUT PAGE SECTION  */
+ /* ABOUT banner-section .aboutbanner  */
+ .banner-section .aboutbanner {
+     margin-left: 10px;
+     float: left;
+     /* height: 700px; */
+     background-color: white;
+     width: 75%;
+     margin-top: 8px;
+ }
+
+ .aboutbanner h1 {
+     font-size: 30px;
+     padding: 20px;
+
+ }
+
+ .aboutbanner p {
+     margin-bottom: 32px;
+     padding-left: 20px;
+ }
+
+ .aboutwhyiip h2 {
+     /* padding-left:20px ; */
+     margin-bottom: 10px;
+ }
+
+ .aboutwhyiip {
+     padding-left: 35px;
+
+ }
+
+ .aboutwhyiip ul {
+     list-style: none;
+ }
+
+ /* CLOSE ABOUT banner-section .aboutbanner */
+ /* start course file  */
+ .banner-section .Courses {
+     width: 710px;
+     background-color: aliceblue;
+     float: left;
+     margin: 15px 25px;
+     padding: 5px;
+
+ }
+
+ .Courses h1 {
+     padding: 10px 15px;
+ }
+
+ .Courses ul {
+     list-style: none;
+     /* padding-bottom: 5px; */
+     /* margin-bottom: 5px; */
+ }
+
+ .Courses li {
+     margin-bottom: 2px;
+     font: weight 1px;
+ }
+
+ .aboutcourses {
+     padding: 10px 15px;
+
+ }
+
+ /* close courses file */
+                                                                 /* start Gallery */
+ .gallery {
+     background-color: white;
+     float: left;
+     margin: 10px;
+     width: 745px;
+
+ }
+
+ .gallery h1 {
+     padding: 10px 15px;
+ }
+
+ .images-gallery {
+     padding: 10px 15px;
+ }
+
+ .images-gallery img {
+     width: 200px;
+     height: 150px;
+     margin: 5px;
+ }
+
+ /* close gallery */
+ /* start contact Us */
+ .ContactUs {
+     background-color: white;
+     float: left;
+     margin: 10px;
+     width: 745px;
+
+ }
+
+ .ContactUs h1 {
+     padding: 10px 0px 10px 25px;
+ }
+
+ .about-ContactUs {
+
+     padding: 10px 0px 0px 25px;
+
+     width: 700px;
+     height: 250px;
+     font-size: 17px;
+     color: #5b5b5b;
+
+ }
+
+ .about-ContactUs b {
+     color: black;
+ }
+
+ /* Close contact US */
+
+ /* starting enquiry    Form */
+ .enquiry-form {
+     float: left;
+     background-color: white;
+     width: 745px;
+     height: 672px;
+     padding: 20px;
+     margin: 10px;
+
+ }
+
+.enquiry-form h1{
+    margin: 5px 0px 10px 5px;
+
+}
+ .rowform {
+     margin-bottom: 15px;
+     ;
+ }
+
+ .mainform {
+     padding: 5px;
+     float: left;
+     margin-bottom: 20px;
+ }
+
+ .formlabal {
+     float: left;
+     width: 100px;
+
+ }
+
+ .inputform {
+     font-size: 14px;
+     /* margin-left: 110px; */
+     /* float: left;
+     width: 705px;
+     height: 23px;
+     margin-bottom: 20px; */
+
+ }
+
+ .textarea {
+     width: 200px;
+     resize: none;
+     height: 100px;
+     margin-left: 15px;
+
+     
+ }
+ .inputbox{
+    width: 200px;
+    height: 25px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+ }
+ .rowform{
+    width: 705px;
+}
+.select{
+    width: 90px;
+    margin-left: 15px;
+
+}
+.sendbutton{
+    background:#09F;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}

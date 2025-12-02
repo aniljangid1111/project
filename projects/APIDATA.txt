@@ -1,0 +1,8 @@
+
+!! E-Commerce API!!
+product ||id API => https://wscubetech.co/ecommerce-api/productdetails.php?id=166
+
+All Product And Main Api => https://wscubetech.co/ecommerce-api/products.php
+
+For Brand API => http://wscubetech.co/ecommerce-api/brands.php
+ For category APi => https://wscubetech.co/ecommerce-api/categories.php

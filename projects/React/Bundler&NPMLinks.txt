@@ -1,0 +1,15 @@
+VITE=	npm create vite@latest   ;,
+Bootstrap NPM=> npm i react-bootstrap ,npm i bootstrap (react)  , 
+for import bootsratp in react=> css=>1.   import 'bootstrap/dist/css/bootstrap.min.css'
+                                js=> 2.   import 'bootstrap/dist/js/bootstrap.bundle.min.js'
+
+
+
+
+
+
+React Icon => npm i react-icons  ,
+react toastify for massages=> npm i react-toastify  ,
+for Api call npm in react (Axios)=>  npm i axios
+react router npm =>  npm i react-router   ,
+react pagination => npm i react-responsive-pagination ,

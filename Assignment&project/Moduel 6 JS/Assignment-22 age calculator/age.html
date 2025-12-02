@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calcultor</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/key.css">
+   
+</head>
+
+<body>
+    <div class="container">
+        <h3>Age Calculator</h3>
+        <div class="user">
+            <input type="date" id="userdata">
+            <input type="time" id="userTime">
+        </div>
+        <div class="btn">
+            <button onclick="calAge()">Submit</button>
+        </div>
+        <div class="result">
+            <div class="year-section">
+                <div class="inner">
+                    <label>years:</label>
+                    <input type="text" id="year" readonly>
+                </div>
+            </div>
+            <div class="month-section">
+                <div class="inner">
+                    <label>Month:</label>
+                    <input type="text" id="month" readonly>
+                </div>
+            </div>
+            <div class="day-section">
+                <div class="inner">
+                    <label>Days:</label>
+                    <input type="text" id="day" readonly>
+                </div>
+            </div>
+            <div class="hour-section">
+                <div class="inner">
+                    <label>Hours:</label>
+                    <input type="text" id="hours" readonly>
+                </div>
+            </div>
+            <div class="min-section">
+                <div class="inner">
+                    <label>Minutes:</label>
+                    <input type="text" id="minutes" readonly>
+                </div>
+            </div>
+            <div class="sec-section">
+                <div class="inner">
+                    <label>Seconds:</label>
+                    <input type="text" id="seconds" readonly>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+
+
+
+        function calAge() {
+            let userdata = document.querySelector("#userdata").value;
+            let userTime = document.querySelector("#userTime").value;
+            let year = document.querySelector("#year");
+            let month = document.querySelector("#month");
+            let day = document.querySelector("#day");
+            let hoursUser = document.querySelector("#hours");
+            let minutesUser = document.querySelector("#minutes");
+            let secondsUser = document.querySelector("#seconds");
+
+
+
+            let currentTime = new Date();
+            // let userTimeZone = new Date(userdata + " " + userTime);
+            // let userTimeZone = new Date(userdata + " " + userTime);
+            let userTimeZone = new Date(userdata + "T" + (userTime || "00:00"));
+
+
+
+            if (!userdata) {
+                alert("Please enter your birth date.");
+                return;
+            }
+
+            let timeDifference = currentTime - userTimeZone
+
+
+
+
+
+
+
+            let years = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365.25));
+            let months = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365.25)) / (1000 * 60 * 60 * 24 * 30.44));
+            let days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24));
+            // let days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365.25) - (months * (1000 * 60 * 60 * 24 * 30.44))) / (1000 * 60 * 60 * 24));
+
+
+            let hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            let min = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            let sec = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            year.value = years;
+            month.value = months;
+            day.value = days;
+            hoursUser.value = hours;
+            minutesUser.value = min;
+            secondsUser.value = sec;
+
+        }
+    </script>
+
+</body>
+
+</html>

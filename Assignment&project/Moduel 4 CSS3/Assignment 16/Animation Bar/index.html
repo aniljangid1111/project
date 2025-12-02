@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #070721;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        main{
+            display: flex;
+            gap: 50px;
+        }
+        .inner{
+            width: 12px;
+            height: 180px;
+            background-color: yellow;
+            animation: bar 2s  0s infinite linear ;
+        }
+        .inner:nth-child(1){
+            background-color: orange;
+            animation-duration: 2s;
+        }
+        .inner:nth-child(2){
+            background-color: yellowgreen;
+            animation-duration: 2.5s;
+        }
+        .inner:nth-child(3){
+            background-color: whitesmoke;
+            animation-duration: 3s;
+        }
+        .inner:nth-child(4){
+            background-color: green;
+            animation-duration: 4s;
+        }
+        @keyframes bar{
+            0%{
+                transform: scaley(1);
+            }
+            50%{
+                transform: scaley(1.5);
+            }
+            100%{
+                transform: scaley(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </main>
+</body>
+
+</html>

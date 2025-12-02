@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = 500;
+        let b = 65;
+        let c = 44;
+        if (a > b) {
+            let tmp = a;
+            a = b;
+            b = tmp;
+        }
+        if (a > c) {
+            let tmp = a;
+            a = c;
+            c = tmp;
+        }
+        if (b > c) {
+            let tmp = b;
+            b = c;
+            c = tmp;
+        }
+        console.log("Sorted Number:", a, b, c)
+    </script>
+</body>
+
+</html>

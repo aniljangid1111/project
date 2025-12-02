@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #111;
+        }
+
+        .parent {
+            width: 600px;
+            height: 500px;
+            background: yellow;
+            border: 1px solid red;
+        }
+
+        .child {
+            width: 500px;
+            height: 400px;
+            background: green;
+            /* border: 1px solid red; */
+        }
+
+        .SubChild {
+            width: 400px;
+            height: 300px;
+            background: gray;
+            /* border: 1px solid red; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="child">
+            <div class="SubChild">
+                Sub child
+            </div>
+            Child
+        </div>
+        parent
+    </div>
+    <script>
+
+        const parent = document.querySelector('.parent')
+        const child = document.querySelector('.child')
+        const SubChild = document.querySelector('.SubChild')
+
+        // Event Bulbling
+
+        // parent.addEventListener('click', () => {
+        //     console.log('parent')
+        // })
+
+        // child.addEventListener('click', () => {
+        //     console.log('child')
+        // })
+
+        // SubChild.addEventListener('click', () => {
+        //     console.log('SubChild')
+        // })
+
+            // Event Capturing
+
+        parent.addEventListener('click', () => {
+            console.log('parent')
+        },true)
+
+        child.addEventListener('click', () => {
+            console.log('child')
+        },true)
+
+        SubChild.addEventListener('click', () => {
+            console.log('SubChild')
+        },true)
+
+    </script>
+</body>
+
+</html>

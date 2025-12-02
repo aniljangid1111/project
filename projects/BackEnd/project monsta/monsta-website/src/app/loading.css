@@ -1,0 +1,64 @@
+  * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+  }
+
+
+
+  .loading {
+      width: 1000px;
+      margin: auto;
+      height: 600px;
+  }
+
+  .loadingtext {
+      color: rgb(85, 216, 216);
+      text-align: center;
+  }
+
+  .box {
+      color: black;
+      position: relative;
+      margin: 50px auto;
+      font-size: 13px;
+      width: 50px;
+      height: 50px;
+      border: 6px solid aqua;
+      box-shadow: 0 0 8px aqua, 0 0 8px aqua inset;
+      /* animation-direction: alternate; */
+      /*   FOR back Animation     */
+      /* animation-fill-mode: forwards; */
+      /* animation-play-state:running ; */
+      /*  For alwway run to stop the animation!    */
+
+      animation: circul 2s infinite ease-in-out;
+  }
+
+  @keyframes circul {
+      0% {
+          transform: rotatex(0) rotateY(0) rotateZ(0);
+          transform: rotate(0, 0, 0);
+      }
+
+      33% {
+          transform: rotatex(180deg) rotateY(0) rotateZ(0);
+          border: 6px solid yellow;
+          /* transform: rotate( 180deg 0 0); */
+      }
+
+      57% {
+          transform: rotatex(180deg) rotateY(180deg) rotateZ(0);
+          border: 6px solid rgb(202, 24, 51);
+
+          box-shadow: 0 0 8px rgb(196, 14, 66), 0 0 8px rgb(159, 10, 28) inset;
+
+          /* transform: rotate( 180deg 0 0); */
+      }
+
+      100% {
+          transform: rotatex(180deg) rotateY(180deg) rotateZ(180deg);
+          border: 6px solid lightblue;
+          /* transform: rotate( 180deg 0 0); */
+      }
+  }

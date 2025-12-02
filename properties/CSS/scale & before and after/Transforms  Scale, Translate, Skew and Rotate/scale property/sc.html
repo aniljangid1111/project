@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            list-style: none;
+
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        header button{
+            padding: 5px 25px;
+            color: whitesmoke;
+            background-color: brown;
+            border: none;
+            border-radius: 5px;
+        }
+        nav {
+            width: 1120px;
+            margin: auto;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            
+
+        }
+
+        nav ul {
+            display: flex;
+            margin: 0 10px;
+        }
+
+        nav li{
+            font-size: 18px;
+            margin: 0 10px;
+            position: relative;
+        }
+        nav li::before{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: red;
+            bottom: 0;
+            left: 0;
+            scale: 0;
+            transition: 0.3s;
+            
+            
+
+        }
+        nav ul  li:hover::before{
+            
+            scale: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>nav 1</li>
+                <li>nav 2</li>
+                <li>nav 3</li>
+                <li>nav 4</li>
+            </ul>
+        </nav>
+        <div>
+            <button>login</button>
+        </div>
+    </header>
+</body>
+
+</html>

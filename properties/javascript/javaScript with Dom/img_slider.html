@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img-slider</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            width: 90vw;
+        }
+
+        .panel {
+            height: 80vh;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            border-radius: 50px;
+            color: white;
+            cursor: pointer;
+            width: 2%;
+            margin: 10px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.9s;
+            overflow: hidden;
+
+
+
+        }
+
+        .panel h3 {
+            position: absolute;
+            bottom: 20px;
+            color: red;
+            left: 20px;
+            opacity: 0;
+
+        }
+
+        .panel:nth-child(1) h3 {
+           
+            color: #FFC42A;
+
+        }
+
+        .panel:nth-child(2) h3 {
+            color: #580D11;
+        }
+
+        .panel:nth-child(3) h3 {
+            color: #ACACAC;
+        }
+        .panel:nth-child(4) h3 {
+            color: #ACACAC;
+        }
+        .panel:nth-child(5) h3 {
+            color: #ABDFFC;
+        }
+
+        .panel p {
+            opacity: 0;
+            font-size: 22px;
+            text-shadow: 0 0 5px black;
+            padding: 20px;
+
+        }
+
+        .panel.active {
+            width: 90%;
+        }
+
+        .panel.active p {
+            opacity: 1;
+            transition: opacity 0.3s ease-in 0.5s;
+        }
+
+        .panel.active h3 {
+            opacity: 1;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="panel " style="background-image: url(./img/first.jpg);">
+
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis impedit delectus a dolores
+                eligendi sequi praesentium temporibus perferendis maxime tenetur labore odit quo, obcaecati excepturi,
+                sint id ad blanditiis.</p>
+            <h3>Yellow monster</h3>
+        </div>
+        <div class="panel" style="background-image: url(./img/sec.jpg);">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis impedit delectus a dolores
+                eligendi sequi praesentium temporibus perferendis maxime tenetur labore odit quo, obcaecati excepturi,
+                sint id ad blanditiis.</p>
+            <h3>Red monster</h3>
+        </div>
+        <div class="panel active" style="background-image: url(./img/hey.jpg);">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis impedit delectus a dolores
+                eligendi sequi praesentium temporibus perferendis maxime tenetur labore odit quo, obcaecati excepturi,
+                sint id ad blanditiis.</p>
+            <h3>Hello World</h3>
+        </div>
+        <div class="panel " style="background-image: url(./img/third.jpg);">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis impedit delectus a dolores
+                eligendi sequi praesentium temporibus perferendis maxime tenetur labore odit quo, obcaecati excepturi,
+                sint id ad blanditiis.</p>
+            <h3>Gray monster</h3>
+        </div>
+        <div class="panel" style="background-image: url(./img/fourth.jpg);">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam facilis impedit delectus a dolores
+                eligendi sequi praesentium temporibus perferendis maxime tenetur labore odit quo, obcaecati excepturi,
+                sint id ad blanditiis.</p>
+            <h3>Blue monster</h3>
+        </div>
+    </div>
+    <script>
+        const panels = document.querySelectorAll('.panel');
+        panels.forEach((panel) => {
+            panel.addEventListener('click', () => {
+               
+                panels.forEach((p) => p.classList.remove('active'));
+                panel.classList.add('active');
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>

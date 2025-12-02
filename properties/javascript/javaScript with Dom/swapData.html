@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>swap data</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .row1,
+        .row2,
+        .output {
+            width: 1000px;
+            margin: 10px auto;
+            padding: 15px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            background-color: darkslategray;
+            color: whitesmoke;
+            font-size: 20px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: darkslategray;
+            color: whitesmoke;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            margin: auto;
+            display: block;
+        }
+
+        .img1 {
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .container {
+            width: 1000px;
+            margin: 10px auto;
+            padding: 15px;
+            align-items: center;
+            place-items: center;
+
+        }
+
+        input {
+            padding: 8px 15px;
+            background-color: darkslategray;
+            color: whitesmoke;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            margin: 10px auto;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row1">1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, iure? Laboriosam cumque vitae,
+        veniam repellendus reprehenderit consequatur in ipsum nostrum rerum sit, architecto vel aliquam error commodi
+        voluptatem, quae impedit?</div>
+    <div class="row2">2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, iure? Laboriosam cumque vitae,
+        veniam repellendus reprehenderit consequatur in ipsum nostrum rerum sit, architecto vel aliquam error commodi
+        voluptatem, quae impedit?</div>
+
+    <div class="img1">
+        <div> <img src="./img/first.jpg" alt="image" width="500px" height="300px" class="imgfirst"></div>
+
+        <div>
+            <img src="./img/sec.jpg" alt="image" width="500px" height="300px" class="imgsec">
+        </div>
+    </div>
+    <button class="btn" onclick="swapdata()">swap data</button>
+
+
+    <div class="container">
+        <div> <input type="text" placeholder="Enter your name"  class="input">
+
+        </div>
+        <button onclick="inputvalue()">submit</button>
+
+
+
+    </div>
+    <div class="output">
+
+    </div>
+
+
+
+
+
+    <script>
+        let row1 = document.querySelector('.row1');
+        let row2 = document.querySelector('.row2');
+        let output = document.querySelector('.output');
+        let btn = document.querySelector('.btn');
+        let imgfirst = document.querySelector('.imgfirst');
+        let imgsec = document.querySelector('.imgsec');
+
+        function swapdata() {
+
+            // swapping text
+            let temp = row1.innerHTML;
+            row1.innerHTML = row2.innerHTML;
+            row2.innerHTML = temp;
+
+            // swapping image
+            let temp1 = imgfirst.src;
+            imgfirst.src = imgsec.src;
+            imgsec.src = temp1;
+        }
+        function inputvalue() {
+            let input = document.querySelector('.input').value;
+            output.innerHTML = input;
+        }
+
+
+    </script>
+</body>
+
+</html>

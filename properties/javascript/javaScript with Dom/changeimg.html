@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(97, 89, 89, 0.148);
+        }
+        .container {
+            width: 750px;
+            margin: 20px auto;
+           text-align: center; 
+           
+        }
+        .container img:nth-child(1){
+            border-radius: 15px;
+            box-shadow: 15px 10px 20px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="./img/hey.jpg" id="img1" alt="" width="750">
+
+        <img src="./img/sec.jpg"   onclick="chngimg(this)" alt=""  width="23%">
+        <img src="./img/third.jpg" onclick="chngimg(this)" alt=""  width="23%">
+        <img src="./img/fourth.jpg"onclick="chngimg(this)" alt=""  width="23%">
+        <img src="./img/hey.jpg"   onclick="chngimg(this)" alt=""  width="23%">
+        <!-- <img src="./img/sec.jpg"   onmouseover="chngimg(this)" alt=""  width="23%">
+        <img src="./img/third.jpg" onmouseover="chngimg(this)" alt=""  width="23%">
+        <img src="./img/fourth.jpg"onmouseover="chngimg(this)" alt=""  width="23%">
+        <img src="./img/hey.jpg"   onmouseover="chngimg(this)" alt=""  width="23%"> -->
+    </div>
+
+</body>
+<script>
+    let img1=document.querySelector("#img1");
+    function chngimg(img){
+        
+        img1.src=img.src;
+        // console.log(currentimg.src);
+    }
+</script>
+
+</html>

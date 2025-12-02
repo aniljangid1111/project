@@ -1,0 +1,21 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background: #323131;
+    color: whitesmoke;
+    padding: 20px 30px;
+}
+
+ul {
+    display: flex;
+    gap: 25px;
+}
+
+ul li a {
+    color: whitesmoke;
+}

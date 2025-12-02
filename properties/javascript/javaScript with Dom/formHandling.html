@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-transform: capitalize;
+        }
+
+        .formContainer {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 2, 0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .groupInput {
+            margin-bottom: 15px;
+        }
+
+        .groupInput label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .groupInput input,
+        .groupInput select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .groupInput input:focus,
+        .groupInput select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .table-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 95%;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 10px;
+
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tbody td button {
+
+            padding: 4px 14px;
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            border: 1px solid red;
+            transition: 0.4s;
+            text-align: center;
+            align-items: center;
+
+
+        }
+
+        tbody button:hover {
+            background-color: white;
+            color: red;
+
+        }
+
+        tbody td:last-child {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="formContainer">
+            <form id="formHandler">
+                <div class="groupInput">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="groupInput">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" required>
+                </div>
+                <div class="groupInput">
+                    <label for="mobileNo">Mobile Number</label>
+                    <input type="text" name="mobileNo" required>
+                </div>
+                <div class="groupInput">
+                    <label for="country">Country</label>
+                    <select name="country" id="country">
+                        <option value="">Select Country</option>
+                        <option value="India">India</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Austraila">Austraila</option>
+                    </select>
+                </div>
+                <div class="groupInput">
+                    <label for="state">State</label>
+                    <select name="state" id="state">
+                        <option value="">Select State</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+
+        <div class="table-container">
+            <h2>User Data</h2>
+            <table id="data-table" border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile</th>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="fetch-data">
+                    <tr>
+                        <td>1</td>
+                        <td>Anil</td>
+                        <td>anil@gmail.com</td>
+                        <td>8441937079</td>
+                        <td>india</td>
+                        <td>Rajasthan</td>
+                        <td><button>Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script>
+        var getData = JSON.parse(localStorage.getItem('userInfoData'));
+
+        var allUserInfo = getData ? getData : [];
+
+        var states = [
+            { id: 1, name: 'Maharashtra', country_name: 'India' },
+            { id: 2, name: 'Karnataka', country_name: 'India' },
+            { id: 3, name: 'Tamil Nadu', country_name: 'India' },
+            { id: 4, name: 'West Bengal', country_name: 'India' },
+            { id: 5, name: 'Gujarat', country_name: 'India' },
+            { id: 6, name: 'Ontario', country_name: 'Canada' },
+            { id: 7, name: 'Quebec', country_name: 'Canada' },
+            { id: 8, name: 'British Columbia', country_name: 'Canada' },
+            { id: 9, name: 'Alberta', country_name: 'Canada' },
+            { id: 10, name: 'Manitoba', country_name: 'Canada' },
+            { id: 11, name: 'New South Wales', country_name: 'Austraila' },
+            { id: 12, name: 'Victoria', country_name: 'Austraila' },
+            { id: 13, name: 'Queensland', country_name: 'Austraila' },
+            { id: 14, name: 'Western Australia', country_name: 'Austraila' },
+            { id: 15, name: 'South Australia', country_name: 'Austraila' }
+        ];
+
+        document.getElementById('country').addEventListener('change', (event) => {
+            let allstate = states.filter((value) => {
+                if (value.country_name == event.target.value) {
+                    return value;
+                }
+            })
+
+            let stateOptions = '<option value="">Select State</option>';
+
+            allstate.forEach((value) => {
+                stateOptions += `<option value=${value.name}>${value.name}</option>`
+            })
+            document.getElementById('state').innerHTML = stateOptions;
+
+        })
+
+
+        document.getElementById('formHandler').addEventListener('submit', (event) => {
+            event.preventDefault()
+
+            var userinfo = {
+                name: event.target.name.value,
+                email: event.target.email.value,
+                mobile_number: event.target.mobileNo.value,
+                country_name: event.target.country.value,
+                state_name: event.target.state.value,
+            }
+
+            var allData = [userinfo, ...allUserInfo];
+
+            allUserInfo = allData;
+
+
+            var newData = JSON.stringify(allData);
+            localStorage.setItem('userInfoData', newData);
+
+
+            console.log(allUserInfo);
+            displayUser()
+
+
+
+
+
+
+            // form clear
+            event.target.reset();
+
+            var stateOptions = '<option value="">Select State</option>';
+            document.getElementById('state').innerHTML = stateOptions;
+        })
+        function displayUser() {
+
+            var fetchData = '';
+
+            if (allUserInfo.length > 0) {
+                allUserInfo.forEach((v, i) => {
+                    fetchData += `
+            <tr>
+                <td>${i + 1}</td>
+                <td>${v.name}</td>
+                <td>${v.email}</td>
+                <td>${v.mobile_number}</td>
+                <td>${v.country_name}</td>
+                <td>${v.state_name}</td>
+                <td><button onclick="deleteUser(${i})"> Delete </button></td>
+            </tr>
+        `;
+                })
+            } else {
+                fetchData = `
+        <tr align="center">
+            <td  colspan="7"> No Record Found !! </td>
+        </tr>
+    `;
+            }
+
+            document.getElementById('fetch-data').innerHTML = fetchData;
+        }
+
+        displayUser();
+
+        function deleteUser(indexNumber) {
+            if (confirm('Are you sure you want to delete ?')) {
+                allUserInfo.splice(indexNumber, 1);
+
+                var newData = JSON.stringify(allUserInfo);
+                localStorage.setItem('userInfoData', newData);
+                displayUser();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flip Box</title>
+    <style>
+        main{
+            width: 300px;
+            height: 300px;
+            border: 5px solid rgb(68, 0, 255);
+            margin: auto;
+            position: relative;
+        }
+        .img-1{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(1);
+            transition: 1.5s;
+            border-radius: 50%;
+        }
+        main:hover .img-1{
+            transform:scale(1)  rotatex(360deg);
+        }
+        
+        .img-2{
+            position: absolute;
+            top: 70px;
+            left: 70px;
+            width: 50%;
+            height: 50%;
+            transform: scale(1);
+            transition: 1.5s;
+            border-radius: 50%;
+        }
+        main:hover .img-2{
+            transform:scale(1)  rotate(360deg);
+        }
+        .img-3{
+            position: absolute;
+            top: 110px;
+            left: 115px;
+            width: 20%;
+            height: 20%;
+            transform: scale(1);
+            transition: 1.5s;
+            border-radius: 50%;
+        }
+        main:hover .img-3{
+            transform:scale(1)  rotate(180deg);
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <img src="./images/1.jpg" class="img-1">
+        <img src="./images/2.jpg" class="img-2">
+        <img src="./images/3.jpg" class="img-3">
+    </main>
+</body>
+</html>
